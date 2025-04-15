@@ -27,7 +27,7 @@ export default function FAQPage() {
         {
           question: "What is the check-in and check-out time?",
           answer:
-            "Check-in is at 2:00 PM and check-out is at 11:00 AM. Early check-in or late check-out may be arranged based on availability.",
+            "Check-In is at 12:00 PM and Check-Out is at 10:00 AM. Early check-in or late check-out may be arranged based on availability.",
         },
         {
           question: "How far in advance should I book?",

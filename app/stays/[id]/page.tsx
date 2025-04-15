@@ -1,130 +1,151 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef, useCallback } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft, ExternalLink, ChevronLeft, ChevronRight, X, MapPin, Users, Calendar, Check } from "lucide-react"
-import { ScrollToTop } from "@/components/scroll-to-top"
-import { phaseData } from "@/lib/house-data"
-import { getBlurDataURL } from "@/lib/image-loader"
-import { useRouter } from "next/navigation"
+import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import {
+  ArrowLeft,
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  MapPin,
+  Users,
+  Calendar,
+  Check,
+} from "lucide-react";
+import { ScrollToTop } from "@/components/scroll-to-top";
+import { phaseData } from "@/lib/house-data";
+import { getBlurDataURL } from "@/lib/image-loader";
+import { useRouter } from "next/navigation";
 
-export default function HouseDetailPage({ params }: { params: { id: string } }) {
-  const { id } = params
-  const [galleryOpen, setGalleryOpen] = useState(false)
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const [scrollData, setScrollData] = useState({ y: 0, opacity: 1 })
-  const router = useRouter()
-  const containerRef = useRef<HTMLDivElement>(null)
+export default function HouseDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const { id } = params;
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [scrollData, setScrollData] = useState({ y: 0, opacity: 1 });
+  const router = useRouter();
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Find the house data
-  const houseData = useRef<{ house: any; phase: any } | null>(null)
+  const houseData = useRef<{ house: any; phase: any } | null>(null);
 
   // Initialize house data and handle mounting
   useEffect(() => {
     // Find the house data
     for (const p of phaseData) {
-      const foundHouse = p.houses.find((h) => h.id === id)
+      const foundHouse = p.houses.find((h) => h.id === id);
       if (foundHouse) {
         houseData.current = {
           house: foundHouse,
           phase: p,
-        }
-        break
+        };
+        break;
       }
     }
 
     // Set mounted state
-    setMounted(true)
+    setMounted(true);
 
     // If house not found, redirect to stays page
     if (!houseData.current) {
-      router.push("/stays")
+      router.push("/stays");
     } else {
       // Scroll to top when component mounts
-      window.scrollTo(0, 0)
-      setIsLoaded(true)
+      window.scrollTo(0, 0);
+      setIsLoaded(true);
     }
-  }, [id, router])
+  }, [id, router]);
 
   // Set up scroll effects after mounting
   useEffect(() => {
-    if (!mounted || !containerRef.current) return
+    if (!mounted || !containerRef.current) return;
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      const containerHeight = containerRef.current?.offsetHeight || 0
-      const scrollProgress = Math.min(scrollPosition / containerHeight, 1)
+      const scrollPosition = window.scrollY;
+      const containerHeight = containerRef.current?.offsetHeight || 0;
+      const scrollProgress = Math.min(scrollPosition / containerHeight, 1);
 
       setScrollData({
         y: scrollProgress * 150,
         opacity: 1 - scrollProgress * 0.5,
-      })
-    }
+      });
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [mounted])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [mounted]);
 
   const openGallery = useCallback((index: number) => {
-    setSelectedImageIndex(index)
-    setGalleryOpen(true)
-    document.body.style.overflow = "hidden"
-  }, [])
+    setSelectedImageIndex(index);
+    setGalleryOpen(true);
+    document.body.style.overflow = "hidden";
+  }, []);
 
   const closeGallery = useCallback(() => {
-    setGalleryOpen(false)
-    document.body.style.overflow = ""
-  }, [])
+    setGalleryOpen(false);
+    document.body.style.overflow = "";
+  }, []);
 
   // Navigate through gallery images
   const navigateGallery = useCallback((direction: "next" | "prev") => {
-    if (!houseData.current) return
+    if (!houseData.current) return;
 
-    const { house } = houseData.current
-    const totalImages = house.images.length
+    const { house } = houseData.current;
+    const totalImages = house.images.length;
 
     if (direction === "next") {
-      setSelectedImageIndex((prev) => (prev === totalImages - 1 ? 0 : prev + 1))
+      setSelectedImageIndex((prev) =>
+        prev === totalImages - 1 ? 0 : prev + 1
+      );
     } else {
-      setSelectedImageIndex((prev) => (prev === 0 ? totalImages - 1 : prev - 1))
+      setSelectedImageIndex((prev) =>
+        prev === 0 ? totalImages - 1 : prev - 1
+      );
     }
-  }, [])
+  }, []);
 
   if (!mounted || !houseData.current) {
-    return null // Will redirect in useEffect or show loading state
+    return null; // Will redirect in useEffect or show loading state
   }
 
-  const { house, phase } = houseData.current
+  const { house, phase } = houseData.current;
 
   // Get the guest count based on house ID - exactly matching the stays page
   const getGuestCount = () => {
-    if (id === "keeth-house-1") return "2 guests"
-    if (id === "keeth-house-2") return "4 guests"
-    if (id === "keeth-house-3") return "2 guests"
-    if (id === "keeth-house-4") return "2 guests"
-    if (id === "keeth-house-5") return "2 guests"
-    if (id === "keeth-house-6") return "4 guests"
-    if (id === "keeth-house-7") return "2 guests"
-    if (id === "keeth-house-8") return "4 guests"
-    if (id === "keeth-house-9") return "2 guests"
-    if (id === "keeth-house-10") return "2 guests"
-    if (id === "khaya-nest") return "2 guests"
-    if (id === "de-villa-1") return "2 guests"
-    if (id === "de-villa-2") return "2 guests"
-    if (id === "de-cabin") return "2 guests"
-  }
+    if (id === "keeth-house-1") return "2 guests";
+    if (id === "keeth-house-2") return "4 guests";
+    if (id === "keeth-house-3") return "2 guests";
+    if (id === "keeth-house-4") return "2 guests";
+    if (id === "keeth-house-5") return "2 guests";
+    if (id === "keeth-house-6") return "4 guests";
+    if (id === "keeth-house-7") return "2 guests";
+    if (id === "keeth-house-8") return "4 guests";
+    if (id === "keeth-house-9") return "2 guests";
+    if (id === "keeth-house-10") return "2 guests";
+    if (id === "khaya-nest") return "2 guests";
+    if (id === "de-villa-1") return "2 guests";
+    if (id === "de-villa-2") return "2 guests";
+    if (id === "de-cabin") return "2 guests";
+  };
 
-  const guestCount = getGuestCount()
+  const guestCount = getGuestCount();
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section ref={containerRef} className="relative h-[60vh] md:h-[80vh] overflow-hidden">
+      <section
+        ref={containerRef}
+        className="relative h-[60vh] md:h-[80vh] overflow-hidden"
+      >
         <motion.div
           style={{
             y: scrollData.y,
@@ -146,7 +167,8 @@ export default function HouseDetailPage({ params }: { params: { id: string } }) 
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.03) 0.4px, transparent 0.4px)",
+              backgroundImage:
+                "radial-gradient(rgba(255, 255, 255, 0.03) 0.4px, transparent 0.4px)",
               backgroundSize: "3px 3px",
               opacity: mounted ? 1 : 0,
               transition: "opacity 1.5s",
@@ -167,10 +189,14 @@ export default function HouseDetailPage({ params }: { params: { id: string } }) 
               <ArrowLeft className="h-4 w-4 mr-2" />
               <span>Back to All Stays</span>
             </Link>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">{house.name}</h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">
+              {house.name}
+            </h1>
             <div className="flex items-center text-white/90 mb-4">
               <MapPin className="h-4 w-4 mr-1 text-primary" />
-              <span className="text-sm">{phase.title} · Near Auroville, Tamil Nadu</span>
+              <span className="text-sm">
+                {phase.title} · Near Auroville, Tamil Nadu
+              </span>
             </div>
           </motion.div>
         </div>
@@ -181,43 +207,54 @@ export default function HouseDetailPage({ params }: { params: { id: string } }) 
           {/* Left Column - Main Content */}
           <div className="md:col-span-2">
             <section className="bg-white rounded-xl shadow-sm p-6 md:p-8 mb-8">
-              <h2 className="text-2xl font-bold mb-6 text-primary">The Story of {house.name}</h2>
-              <p className="text-foreground/80 mb-6 leading-relaxed">{house.description}</p>
+              <h2 className="text-2xl font-bold mb-6 text-primary">
+                The Story of {house.name}
+              </h2>
               <p className="text-foreground/80 mb-6 leading-relaxed">
-                Built with traditional techniques by local artisans, this cottage embodies the essence of Keeth House's
-                philosophy - connecting with nature while enjoying modern comforts. The natural materials used in
-                construction create a space that breathes with the environment, keeping it cool in summer and warm in
-                winter.
+                {house.description}
+              </p>
+              <p className="text-foreground/80 mb-6 leading-relaxed">
+                Built with traditional techniques by local artisans, this
+                cottage embodies the essence of Keeth House's philosophy -
+                connecting with nature while enjoying modern comforts. The
+                natural materials used in construction create a space that
+                breathes with the environment, keeping it cool in summer and
+                warm in winter.
               </p>
               <p className="text-foreground/80 leading-relaxed">
-                Every element of the design has been carefully considered to minimize environmental impact while
-                maximizing your comfort and connection to the surrounding nature.
+                Every element of the design has been carefully considered to
+                minimize environmental impact while maximizing your comfort and
+                connection to the surrounding nature.
               </p>
             </section>
 
             <section className="bg-white rounded-xl shadow-sm p-6 md:p-8 mb-8">
               <h2 className="text-2xl font-bold mb-6">Photo Gallery</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {house.images.slice(0, 6).map((image: string, index: number) => (
-                  <div
-                    key={index}
-                    className="relative aspect-square rounded-lg overflow-hidden cursor-pointer"
-                    onClick={() => openGallery(index)}
-                  >
-                    <Image
-                      src={image || "/placeholder.svg"}
-                      alt={`${house.name} - Image ${index + 1}`}
-                      fill
-                      sizes="(max-width: 768px) 50vw, 33vw"
-                      className="object-cover hover:scale-110 transition-transform duration-500"
-                    />
-                    {index === 5 && house.images.length > 6 && (
-                      <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
-                        <span className="text-white font-medium">+{house.images.length - 6} more</span>
-                      </div>
-                    )}
-                  </div>
-                ))}
+                {house.images
+                  .slice(0, 6)
+                  .map((image: string, index: number) => (
+                    <div
+                      key={index}
+                      className="relative aspect-square rounded-lg overflow-hidden cursor-pointer"
+                      onClick={() => openGallery(index)}
+                    >
+                      <Image
+                        src={image || "/placeholder.svg"}
+                        alt={`${house.name} - Image ${index + 1}`}
+                        fill
+                        sizes="(max-width: 768px) 50vw, 33vw"
+                        className="object-cover hover:scale-110 transition-transform duration-500"
+                      />
+                      {index === 5 && house.images.length > 6 && (
+                        <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                          <span className="text-white font-medium">
+                            +{house.images.length - 6} more
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
               </div>
               <div className="mt-4 flex justify-end">
                 <Button
@@ -243,15 +280,15 @@ export default function HouseDetailPage({ params }: { params: { id: string } }) 
                 ))}
               </div>
 
-              <h3 className="text-xl font-semibold mb-4">What makes it special</h3>
+              <h3 className="text-xl font-semibold mb-4">
+                What makes it special
+              </h3>
               <div className="grid md:grid-cols-2 gap-3 mb-6">
                 {[
                   "Hand-crafted by local artisans",
                   "Natural cooling design",
                   "Sustainable materials",
                   "Panoramic nature views",
-                  "Organic breakfast included",
-                  "Stargazing opportunities",
                 ].map((feature, index) => (
                   <div key={index} className="flex items-start">
                     <Check className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
@@ -263,36 +300,58 @@ export default function HouseDetailPage({ params }: { params: { id: string } }) 
 
             <section className="bg-white rounded-xl shadow-sm p-6 md:p-8">
               <h2 className="text-2xl font-bold mb-6">Location</h2>
-              <div className="aspect-video relative rounded-lg overflow-hidden mb-6">
-                <Image src="/placeholder.svg?height=400&width=600" alt="Map location" fill className="object-cover" />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                  <p className="text-white font-medium">Map preview</p>
+
+              <div className="relative h-64 md:h-auto pb-3">
+                <Image
+                  src={house.map}
+                  alt={`Map of Keeth House ${house.name}`}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-4 right-4 z-10">
+                  <a
+                    href={house.navigation}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-primary hover:bg-primary/90 text-white px-3 py-2 rounded-lg text-sm font-medium flex items-center shadow-md"
+                  >
+                    <MapPin className="h-4 w-4 mr-1" />
+                    Navigate
+                  </a>
                 </div>
               </div>
+
               <p className="text-foreground/80 mb-4">
-                {house.name} is located in our {phase.title} property near Auroville, Tamil Nadu. The exact location and
-                directions will be provided after booking.
+                {house.name} is located in our {phase.title} property near
+                Auroville, Tamil Nadu. The exact location and directions will be
+                provided after booking.
               </p>
               <div className="space-y-2">
                 <div className="flex items-start">
                   <MapPin className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium">Near Auroville</p>
-                    <p className="text-sm text-foreground/70">2 minutes from Auroville Visitor Center</p>
+                    <p className="text-sm text-foreground/70">
+                      2 minutes from Auroville Visitor Center
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <MapPin className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium">Pondicherry</p>
-                    <p className="text-sm text-foreground/70">10 minutes drive</p>
+                    <p className="text-sm text-foreground/70">
+                      10 minutes drive
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <MapPin className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium">Chennai International Airport</p>
-                    <p className="text-sm text-foreground/70">2.5 hours drive</p>
+                    <p className="text-sm text-foreground/70">
+                      2.5 hours drive
+                    </p>
                   </div>
                 </div>
               </div>
@@ -350,10 +409,14 @@ export default function HouseDetailPage({ params }: { params: { id: string } }) 
               <section className="bg-white rounded-xl shadow-sm p-6 md:p-8">
                 <h2 className="text-xl font-bold mb-4">Need Help?</h2>
                 <p className="text-foreground/80 mb-4">
-                  Have questions about this cottage or want to make special arrangements? We're here to help!
+                  Have questions about this cottage or want to make special
+                  arrangements? We're here to help!
                 </p>
                 <Link href="/contact">
-                  <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10 mb-3">
+                  <Button
+                    variant="outline"
+                    className="w-full border-primary text-primary hover:bg-primary/10 mb-3"
+                  >
                     Contact Us
                   </Button>
                 </Link>
@@ -418,7 +481,11 @@ export default function HouseDetailPage({ params }: { params: { id: string } }) 
                   <button
                     key={index}
                     onClick={() => setSelectedImageIndex(index)}
-                    className={`w-2 h-2 rounded-full ${index === selectedImageIndex ? "bg-primary" : "bg-white/50"}`}
+                    className={`w-2 h-2 rounded-full ${
+                      index === selectedImageIndex
+                        ? "bg-primary"
+                        : "bg-white/50"
+                    }`}
                     aria-label={`Go to image ${index + 1}`}
                   />
                 ))}
@@ -430,5 +497,5 @@ export default function HouseDetailPage({ params }: { params: { id: string } }) 
 
       <ScrollToTop />
     </div>
-  )
+  );
 }
