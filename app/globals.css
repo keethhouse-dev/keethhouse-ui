@@ -1,0 +1,556 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 39 87% 62%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 35%; /* Darkened from 45.1% to 35% */
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 39 87% 62%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 39 87% 62%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 73.9%; /* Lightened from 63.9% to 73.9% */
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 39 87% 62%;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations - IMPROVED FOR SMOOTHNESS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(15px); /* Reduced distance for subtler animation */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-15px); /* Reduced distance for subtler animation */
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03); /* Reduced scale for subtler effect */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes morphBlob {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; /* Improved easing and duration */
+  will-change: opacity; /* Performance optimization */
+}
+
+.animate-slide-up {
+  animation: slideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; /* Improved easing and duration */
+  will-change: transform, opacity; /* Performance optimization */
+}
+
+.animate-slide-down {
+  animation: slideDown 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; /* Improved easing and duration */
+  will-change: transform, opacity; /* Performance optimization */
+}
+
+.animate-pulse {
+  animation: pulse 2.5s ease infinite; /* Slightly slower for smoother effect */
+}
+
+/* Animation delay utilities */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+/* Simple hover effects */
+.hover-scale {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1); /* Improved easing */
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+.hover-brightness {
+  transition: filter 0.3s cubic-bezier(0.22, 1, 0.36, 1); /* Improved easing */
+}
+
+.hover-brightness:hover {
+  filter: brightness(1.1);
+}
+
+.hover-shadow {
+  transition: box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1); /* Improved easing */
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Additional responsive utilities */
+@media (max-width: 430px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1,
+  .h1 {
+    font-size: 2.25rem !important;
+    line-height: 1.2 !important;
+  }
+
+  h2,
+  .h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+  }
+
+  h3,
+  .h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .text-mobile-sm {
+    font-size: 0.875rem !important;
+  }
+
+  .text-mobile-xs {
+    font-size: 0.75rem !important;
+  }
+
+  .py-mobile-reduced {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .space-y-mobile-reduced {
+    margin-top: 1.5rem !important;
+  }
+
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Fix for iPhone notch area */
+@supports (padding: max(0px)) {
+  .fixed-header {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .fixed-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Enhanced section spacing */
+.section-spacing {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* Add these new styles for enhanced image presentations */
+.image-frame-organic {
+  overflow: hidden;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morphBlob 15s infinite ease-in-out alternate;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.image-frame-organic img {
+  transform: scale(1.1);
+  transition: transform 0.7s ease;
+}
+
+.image-frame-organic:hover img {
+  transform: scale(1.2);
+}
+
+/* Blob shapes */
+.blob-shape-alt {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* Loading animations */
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  border-top-color: hsl(var(--primary));
+  animation: loader-spin 1s linear infinite;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  will-change: background-position;
+}
+
+/* Add these responsive utilities at the end of the file */
+
+/* Enhanced responsive utilities */
+@layer utilities {
+  /* Responsive text sizes */
+  .text-responsive {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+
+  .heading-responsive {
+    font-size: clamp(1.75rem, 5vw, 3rem);
+  }
+
+  .heading-large-responsive {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+  }
+
+  /* Improved touch targets for mobile */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Safe area insets for notched devices */
+  .safe-area-inset {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Mobile-first spacing */
+  .mobile-spacing {
+    padding: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-spacing {
+      padding: 2rem;
+    }
+  }
+
+  /* Improved mobile grid layouts */
+  .mobile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Enhanced mobile optimizations */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1,
+  .h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  h2,
+  .h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+  }
+
+  h3,
+  .h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .py-mobile-reduced {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .space-y-mobile-reduced > * + * {
+    margin-top: 1rem !important;
+  }
+
+  /* Improved card layouts for mobile */
+  .card-mobile {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .card-mobile-image {
+    height: 200px;
+  }
+
+  /* Mobile-optimized buttons */
+  .btn-mobile {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  /* Mobile navigation improvements */
+  .mobile-nav-item {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* Fix for mobile overflow issues */
+  .no-overflow-x {
+    overflow-x: hidden;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tablet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tablet-padding {
+    padding: 1.5rem;
+  }
+}
+
+/* Improved image handling for different devices */
+.img-responsive {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Better scrolling experience on mobile */
+@media (max-width: 640px) {
+  html,
+  body {
+    scroll-padding-top: 4rem;
+  }
+
+  .scroll-margin-mobile {
+    scroll-margin-top: 4rem;
+  }
+}
+
+/* Smooth animation classes */
+.smooth-fade {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.smooth-fade.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.smooth-fade-up {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.smooth-fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays for groups */
+.stagger-group > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+.stagger-group > *:nth-child(2) {
+  transition-delay: 100ms;
+}
+.stagger-group > *:nth-child(3) {
+  transition-delay: 200ms;
+}
+.stagger-group > *:nth-child(4) {
+  transition-delay: 300ms;
+}
+.stagger-group > *:nth-child(5) {
+  transition-delay: 400ms;
+}
+.stagger-group > *:nth-child(6) {
+  transition-delay: 500ms;
+}
+
+/* Add these optimized animation styles to the end of your globals.css file */
+
+/* Performance optimized animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+}
+
+/* Add will-change hints for better performance */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Optimize image rendering */
+.optimize-rendering {
+  image-rendering: optimizeSpeed;
+  backface-visibility: hidden;
+}
+
+/* Reduce animation complexity for better performance */
+.reduced-motion {
+  transition: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Hardware acceleration for animations */
+.hardware-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
