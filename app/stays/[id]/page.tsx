@@ -116,26 +116,6 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 
   const { house, phase } = houseData.current;
 
-  // Get the guest count based on house ID - exactly matching the stays page
-  const getGuestCount = () => {
-    if (id === "keeth-house-1") return "2 guests";
-    if (id === "keeth-house-2") return "4 guests";
-    if (id === "keeth-house-3") return "2 guests";
-    if (id === "keeth-house-4") return "2 guests";
-    if (id === "keeth-house-5") return "2 guests";
-    if (id === "keeth-house-6") return "4 guests";
-    if (id === "keeth-house-7") return "2 guests";
-    if (id === "keeth-house-8") return "4 guests";
-    if (id === "keeth-house-9") return "2 guests";
-    if (id === "keeth-house-10") return "2 guests";
-    if (id === "khaya-nest") return "2 guests";
-    if (id === "de-villa-1") return "2 guests";
-    if (id === "de-villa-2") return "2 guests";
-    if (id === "de-cabin") return "2 guests";
-  };
-
-  const guestCount = getGuestCount();
-
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -376,7 +356,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                       <Users className="h-5 w-5 text-primary mr-2" />
                       <span className="font-medium">Max Guests</span>
                     </div>
-                    <span className="text-foreground/80">{guestCount}</span>
+                    <span className="text-foreground/80">{house.guests} Guests</span>
                   </div>
                 </div>
                 <Link

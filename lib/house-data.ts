@@ -60,7 +60,8 @@ export const phaseData = [
           { name: "Duplex", icon: Home },
         ],
         map: '/images/maps/Phase-I-Map.png',
-        navigation: 'https://maps.app.goo.gl/AXWTNaZcf21UXbTY8'
+        navigation: 'https://maps.app.goo.gl/AXWTNaZcf21UXbTY8',
+        guests: 2,
       },
       {
         id: "keeth-house-2",
@@ -98,7 +99,8 @@ export const phaseData = [
           { name: "WiFi", icon: Wifi },
         ],
         map: '/images/maps/Phase-I-Map.png',
-        navigation: 'https://maps.app.goo.gl/AXWTNaZcf21UXbTY8'
+        navigation: 'https://maps.app.goo.gl/AXWTNaZcf21UXbTY8',
+        guests: 4,
       },
       {
         id: "keeth-house-3",
@@ -136,7 +138,8 @@ export const phaseData = [
           { name: "WiFi", icon: Wifi },
         ],
          map: '/images/maps/Phase-I-Map.png',
-        navigation: 'https://maps.app.goo.gl/AXWTNaZcf21UXbTY8'
+        navigation: 'https://maps.app.goo.gl/AXWTNaZcf21UXbTY8',
+        guests: 2,
       },
     ],
   },
@@ -184,7 +187,8 @@ export const phaseData = [
           { name: "Outdoor Dining", icon: Umbrella },
         ],
          map: '/images/maps/Phase-II-Map.png',
-        navigation: 'https://maps.app.goo.gl/XU2mB2xnxno23KVS8'
+        navigation: 'https://maps.app.goo.gl/XU2mB2xnxno23KVS8',
+        guests: 2,
       },
       {
         id: "keeth-house-5",
@@ -218,7 +222,8 @@ export const phaseData = [
           { name: "Garden View", icon: TreePine },
         ],
          map: '/images/maps/Phase-II-Map.png',
-        navigation: 'https://maps.app.goo.gl/XU2mB2xnxno23KVS8'
+        navigation: 'https://maps.app.goo.gl/XU2mB2xnxno23KVS8',
+        guests: 2,
       },
       {
         id: "keeth-house-6",
@@ -262,7 +267,8 @@ export const phaseData = [
           { name: "Outdoor Kitchen", icon: UtensilsCrossed },
         ],
          map: '/images/maps/Phase-II-Map.png',
-        navigation: 'https://maps.app.goo.gl/XU2mB2xnxno23KVS8'
+        navigation: 'https://maps.app.goo.gl/XU2mB2xnxno23KVS8',
+        guests: 4,
       },
       {
         id: "khaya-nest",
@@ -297,6 +303,7 @@ export const phaseData = [
           "/images/khaya-nest/24.jpg",
           "/images/khaya-nest/25.jpg",
           "/images/khaya-nest/26.jpg",
+          
         ],
         specializations: [
           { name: "Tree House", icon: TreePine },
@@ -305,7 +312,8 @@ export const phaseData = [
           { name: "Balcony", icon: Umbrella },
         ],
          map: '/images/maps/Phase-II-Map.png',
-        navigation: 'https://maps.app.goo.gl/XU2mB2xnxno23KVS8'
+        navigation: 'https://maps.app.goo.gl/XU2mB2xnxno23KVS8',
+        guests: 2,
       },
     ],
   },
@@ -342,7 +350,8 @@ export const phaseData = [
           { name: "Forest View", icon: Trees },
         ],
         map: '/images/maps/Phase-III-Map.png',
-        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7'
+        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7',
+        guests: 2,
       },
       {
         id: "keeth-house-8",
@@ -361,7 +370,8 @@ export const phaseData = [
         ],
         comingSoon: true,
         map: '/images/maps/Phase-III-Map.png',
-        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7'
+        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7',
+        guests: 4,
       },
       {
         id: "keeth-house-9",
@@ -388,7 +398,8 @@ export const phaseData = [
           { name: "MudHouse", icon: Home },
         ],
         map: '/images/maps/Phase-III-Map.png',
-        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7'
+        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7',
+        guests: 2,
       },
       {
         id: "keeth-house-10",
@@ -407,7 +418,8 @@ export const phaseData = [
         ],
         comingSoon: true,
         map: '/images/maps/Phase-III-Map.png',
-        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7'
+        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7',
+        guests: 2,
       },
       {
         id: "de-cabin",
@@ -444,7 +456,8 @@ export const phaseData = [
           { name: "Fully Equipped", icon: UtensilsCrossed },
         ],
         map: '/images/maps/Phase-III-Map.png',
-        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7'
+        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7',
+        guests: 2,
       },
       {
         id: "de-villa-1",
@@ -479,7 +492,8 @@ export const phaseData = [
           { name: "Outdoor Dining", icon: Umbrella },
         ],
         map: '/images/maps/Phase-III-Map.png',
-        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7'
+        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7',
+        guests: 2,
       },
       {
         id: "de-villa-2",
@@ -510,7 +524,8 @@ export const phaseData = [
           { name: "Villa", icon: Building },
         ],
         map: '/images/maps/Phase-III-Map.png',
-        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7'
+        navigation: 'https://maps.app.goo.gl/yjh3P49suiYNaVHS7',
+        guests: 2,
       },
     ],
   },

@@ -40,7 +40,7 @@ const PhaseSection = React.memo(
             <p className="text-primary text-xs md:text-sm flex items-center justify-center mt-1">
               <MapPin className="h-3 w-3 mr-1" />
               <span>
-                {phase.id === "phase-1" && "Lakshya Township, near Auroville"}
+                {phase.id === "phase-1" && "Lakshya Township, Near Auroville"}
                 {phase.id === "phase-2" &&
                   "Edayanchavady Cross Road, Near Red Earth Horse Riding School"}
                 {phase.id === "phase-3" &&
@@ -186,11 +186,7 @@ const HouseCard = React.memo(
             <div className="flex items-center text-sm text-gray-500">
               <Users className="h-4 w-4 mr-1" />
               <span>
-                {house.id.includes("2") ||
-                house.id.includes("6") ||
-                house.id.includes("8")
-                  ? "4 guests"
-                  : "2 guests"}
+                {house.guests} Guests
               </span>
             </div>
 
