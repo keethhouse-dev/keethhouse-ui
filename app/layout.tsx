@@ -38,7 +38,7 @@ export default function RootLayout({
         <meta property="twitter:description" content="FROM UNIQUE HOUSES TO TREE HOUSE. Each of our houses tells a unique story, blending traditional craftsmanship with thoughtful amenities. Discover the perfect retreat for your natural living experience" />
         <meta property="twitter:image" content="/images/khaya-nest/26.jpg" />
       </head>
-      <body className="h-full no-overflow-x">
+      <body className="h-full no-overflow-x" data-new-gr-c-s-check-loaded="14.1231.0" data-gr-ext-installed="">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <SmoothScrollProvider enabled={false}>
             <Header />
@@ -48,7 +48,7 @@ export default function RootLayout({
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>
-    </html>
+    </html >
   )
 }
 

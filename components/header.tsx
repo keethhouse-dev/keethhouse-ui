@@ -54,7 +54,7 @@ const Header = () => {
   const navLinks = [
     {
       title: "Houses",
-      href: "/stays",
+      href: "/",
       onClick: () => window.scrollTo(0, 0),
     },
     {
