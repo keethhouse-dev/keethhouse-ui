@@ -29,7 +29,7 @@ export const phaseData = [
         propertyId: 7843,
         name: "Keeth House - I",
         description:
-          "Our very first creation will take you back to the traditional houses of Tamil Nadu in the 90s. The two-level house with a sprawling porch or 'thinnai' at the entrance, is ideal for a small group of friends or a family of four.",
+          "The two-level, octagon-shaped cottage is a multifunctional house designed to meet all your needs. Whether you're seeking a long workcation or just a weekend getaway with friends, Keeth House ll is the perfect destination. \n\n The living area on the ground floor has ample seating for you and your friends to dine, hang out, and have a game night. The compact kitchen space is furnished with the necessary utensils and equipment. Additionally, there’s a designated workspace for those of you looking for a change of scenery from the usual work-from-home routine. The ambiance of the house is rustic and natural which even extends to the bathroom which has walls made of exposed brick and stone, a spacious modern shower, and some indoor foliage. \n\n The open bedroom on the first floor has two king-size beds to comfortably accommodate a group of four. The keeth roof and open ventilation ensure that the air inside is cool and fresh at all times. The sweetest spot of the house is the spacious balcony facing the forest. From birdwatching in the morning to stargazing at night, you can spend all day here with your friends, clicking instagrammable pictures and making countless memories. ",
         images: [
           "/images/keeth-house-i/1.jpg",
           "/images/keeth-house-i/2.jpg",
@@ -68,7 +68,7 @@ export const phaseData = [
         propertyId: 7843,
         name: "Keeth House - II",
         description:
-          "The two-level, octagon-shaped house is a multifunctional house designed to meet all your needs. Whether you're seeking a long workcation or just a weekend getaway with friends, Keeth House II is the perfect destination.",
+          "The two-level, octagon-shaped cottage is a multifunctional house designed to meet all your needs. Whether you're seeking a long workcation or just a weekend getaway with friends, Keeth House ll is the perfect destination. \n\n The living area on the ground floor has ample seating for you and your friends to dine, hang out, and have a game night. The compact kitchen space is furnished with the necessary utensils and equipment. Additionally, there’s a designated workspace for those of you looking for a change of scenery from the usual work-from-home routine. The ambiance of the house is rustic and natural which even extends to the bathroom which has walls made of exposed brick and stone, a spacious modern shower, and some indoor foliage. \n\n The open bedroom on the first floor has two king-size beds to comfortably accommodate a group of four. The keeth roof and open ventilation ensure that the air inside is cool and fresh at all times. The sweetest spot of the house is the spacious balcony facing the forest. From birdwatching in the morning to stargazing at night, you can spend all day here with your friends, clicking instagrammable pictures and making countless memories. ",
         images: [
           "/images/keeth-house-ii/1.jpg",
           "/images/keeth-house-ii/2.jpg",
@@ -107,7 +107,7 @@ export const phaseData = [
         propertyId: 7843,
         name: "Keeth House - III",
         description:
-          "The house is slightly tucked away to give you an off-the-grid experience. With picturesque views during the day and the soft warm glow of lights at night, it's an ideal destination for an intimate romantic getaway.",
+          "The house is slightly tucked away to give you an off-the-grid experience. With picturesque views during the day and the soft warm glow of lights at night, it’s an ideal destination for an intimate romantic getaway.\n\n The cottage features a plush queen-size bed, comfortable seating, and a large glass wall with a stunning view of the dense forest. Continuing the theme, the bathroom also has a glass window by the shower. The house is designed to give you a ‘jungle lodge’ experience while ensuring utmost safety and privacy. \n\n The open balcony extends into the trees where you can snuggle with your partner, listen to your favorite music, and enjoy a lovely moonlit dinner. If waking up to the sight of greenery, the smell of fresh air, and the sweet sounds of birds chirping is your dream, then this is the house of your dreams!",
         images: [
           "/images/keeth-house-iii/1.jpg",
           "/images/keeth-house-iii/2.jpg",
@@ -147,14 +147,14 @@ export const phaseData = [
     id: "phase-2",
     title: "Phase II",
     description:
-      "Located 2km away from Keeth House Phase I, the secluded property boasts four charming houses each with its unique attributes. The high ceilings of the houses along with the lush tree cover across the expansive land create a cool and serene atmosphere both inside and out. The verdant setting with vibrant flora and fauna makes Keeth House Phase II a paradise for nature lovers.",
+      "Located a few kilometers away from Keeth House Phase 1, the secluded property boasts four charming houses each with its unique attributes. The high ceilings of the cottages along with the lush tree cover across the expansive land create a cool and serene atmosphere both inside and out. The verdant setting with vibrant flora and fauna makes Keeth House Phase 2 a paradise for nature lovers.",
     houses: [
       {
         id: "keeth-house-4",
         propertyId: 7860,
         name: "Keeth House - IV",
         description:
-          "The charming house, which efficiently combines the best features of all our houses, is best suited for couples seeking a quiet nature retreat. The high thatched roof and large windows with gorgeous views make the interiors spacious and airy without compromising on comfort.",
+          "The charming cottage, which efficiently combines the best features of all our houses, is best suited for couples seeking a quiet nature retreat. The high thatched roof and large windows with gorgeous views make the interiors spacious and airy without compromising on comfort. \n\n As you walk up the stone path to the house you are greeted by a small sit-out area facing the garden, where you can spend your mornings and evenings sipping coffee and enjoying your favorite novel. \n\n Inside the house is a small kitchen area with basic cookware and appliances. Next to it rests the locally made, comfortable wooden sofa and coffee table for you to lounge in. A partition made of stone and cement is raised in the middle of the room to separate the bedroom from the seating area. The bathroom built with walls made of cement and stone is accommodated in one corner of the room. \n\n A large triangular window that illuminates the whole room and the elevated balcony-type space next to it are the highlights of this cottage. It’s a beautiful spot to recline and gaze at the sky as the sun goes down and stars fill the space.",
         images: [
           "/images/keeth-house-iv/1.jpg",
           "/images/keeth-house-iv/2.jpg",
@@ -195,7 +195,7 @@ export const phaseData = [
         propertyId: 7860,
         name: "Keeth House - V",
         description:
-          "One of our biggest houses, this house symbolizes rustic elegance. With a bathtub inside and an outdoor shower in the backyard, you are sure to enjoy a unique stay with your loved one. It has a spacious courtyard at the entrance with ample seating for you to relax and enjoy the crisp air.",
+          "The idyllic setting and unique design of the cottage make it a blissful retreat, perfect for sipping drinks by the pond or hosting a cookout party with your friends. \n\n As you walk towards the house, you are greeted by a small, pristine pond at the front, exclusive to this cottage. It’s a tempting spot to dip your feet in, relax, and exchange stories with your friends. Whip out your culinary skills and have a cook-off at the open kitchen which is built right at the entrance. There’s a dining table and seating right next to the kitchen for you to enjoy a grand outdoor feast. \n\n Inside the house, the room is split into two by a partial stone wall to separate the seating area from one of the two king-size beds. The second bed is placed on the upper deck facing a large A-frame window showing off the beautiful landscape. The bathroom is again split into two with the shower, sink, and dressing area on one corner and the lavatory on the opposite side. Next to the bathroom is another pathway to the house leading you to the backyard. \n\n The high ceiling, two doorways, and several windows make the room open and well-ventilated, keeping you refreshed and rejuvenated.",
         images: [
           "/images/keeth-house-v/1.jpg",
           "/images/keeth-house-v/2.jpg",
@@ -230,7 +230,7 @@ export const phaseData = [
         propertyId: 7860,
         name: "Keeth House - VI",
         description:
-          "The idyllic setting and unique design of the house make it a blissful retreat, perfect for sipping drinks by the pond or hosting a cookout party with your friends. As you walk towards the house, you are greeted by a small, pristine pond at the front, exclusive to this house.",
+          "One of our biggest houses, this cottage symbolizes rustic elegance. With a bathtub inside and an outdoor shower in the backyard, you are sure to enjoy a luxurious stay with your loved one. \n\n Unlike other houses, this cottage does not follow the usual shape. It is designed and built to maximize the space without disturbing the majestic trees strewn across the plot. It has a spacious courtyard at the entrance with ample seating for you to relax and enjoy the crisp air. As you walk inside, you can find an adequately equipped kitchenette along with a table from where you can dine or work. \n\n Going further inside there’s a bedroom with a king-size bed perfect for a party of two. The expansive washroom has a large cement bathtub where you can relax in the warm, soothing water, and enjoy a refreshing bath that will melt your troubles away. Walking through the doorway to the backyard you can find an outdoor shower enveloped by cement bars and an open roof to provide privacy while retaining the natural atmosphere.",
         images: [
           "/images/keeth-house-vi/1.jpg",
           "/images/keeth-house-vi/2.jpg",
@@ -275,7 +275,7 @@ export const phaseData = [
         propertyId: 7860,
         name: "The Khaya Nest",
         description:
-          "We took connecting with nature to another level - a level that's 10 meters above the ground! Khaya Nest is our very own Tree House built around the majestic African Mahogany tree known as the 'Khaya' tree. Built with intricate planning and care, Khaya Nest will give you a unique, safe, and adventurous experience.",
+          "We took connecting with nature to another level - a level that’s 10 meters above the ground! Khaya Nest is our very own tree house built around the majestic African Mahogany tree also known as the ‘Khaya’ tree. Built with intricate planning and care, Khaya Nest will give you a unique, safe, and adventurous experience that you won’t forget. \n\n While the concept of living in a treehouse is not new to the community of Auroville, The Khaya Nest is the first property built for tourists and visitors in and around Pondicherry. Situated at approximately 10 meters above the ground, the treehouse is accessed by climbing a sturdy, helical staircase that is wrapped around the trunk allowing you to embrace the tree as you make your ascend. \n\n When you reach the top of the stairs, the floorboard of the house is skillfully engineered to act as a trapdoor that you can push up. As you climb onto the house, you are greeted by a spacious deck at the entrance where you are blessed with a panoramic view of the resplendent landscape. There’s no match for this spot where you can sprawl down at night and count the stars that shine so bright in the absence of city lights. \n\n Across the doorway is a room with a comfortable bed big enough for two people. Above the bed is a circular window intentionally placed to frame the beautiful sunsets in a picture-perfect moment. As the tree moves to the wind, the house gently sways with it cradling you into a peaceful slumber in the night. In the morning, as you wake up to the sound of leaves rustling against the wind and the sweet chirping of birds on the branches, you are assured to feel refreshed and rejuvenated. \n\n While the property is built to give you an authentic outdoorsy and tropical experience, we have included some minimal but effective amenities to cater to your comfort. A small kitchenette with basic utensils, a working sink, and a dining table with stools are accommodated in the room. A large wooden tray with a rope & pulley system is installed to get your food and luggage with ease without having to carry them up and down. The house also has a small balcony where a western toilet is placed for your convenience. \n\n Additionally, a separate washroom with an outdoor shower is built on the ground right next to the tree. The shower area is surrounded by a low wall made of mud and black limestone, providing privacy while still allowing you to enjoy the beauty of the serene atmosphere with its open roof. The interior of the washroom that is adorned with natural elements, and the tall foliage surrounding the space both inside and out further enhances the wilderness experience. As you take a shower, you can bask in the sunlight, feel the refreshing drizzles of rain, and listen to the soothing sounds of nature. At night, the soft glow of the moon and warm lights from the treehouse create a romantic ambiance, making bathing a truly transcendent experience.",
         images: [
           "/images/khaya-nest/1.jpg",
           "/images/khaya-nest/2.jpg",
@@ -328,7 +328,7 @@ export const phaseData = [
         propertyId: 9930,
         name: "Keeth House - VII",
         description:
-          "Keeth House VII offers a serene escape. The open dining and kitchenette area invites you to enjoy meals under the stars or the soft morning light, connecting deeply with nature. Climb the rustic ladder to a secluded balcony, where birdsong and rustling leaves set the perfect tone for quiet moments. Refresh in the open-to-the-sky shower, surrounded by lush greenery, or unwind in the spacious restroom designed for comfort.",
+          "The bedroom features classic red oxide flooring, keeping the space cool and timeless. Traditional keeth and vezhal roofing ensures natural ventilation, creating an airy, refreshing ambiance. A stay at Keeth House VII is an invitation to embrace simplicity, tradition, and the beauty of slow living",
         images: [
           "/images/keeth-house-vii/1.JPG",
           "/images/keeth-house-vii/2.JPG",
@@ -391,7 +391,7 @@ export const phaseData = [
         propertyId: 9930,
         name: "Keeth House - IX",
         description:
-          "Keeth House IX stands elevated, offering a unique retreat in nature. The house is thoughtfully divided into two sections, with large windows framing lush greenery and filling the space with natural light. At its heart is a kitchenette with an island counter, perfect for cooking, gathering, and sharing meals. The separate bedroom opens onto a private balcony, an ideal spot to soak in the sunrise or starlit sky.",
+          "At its heart is a kitchenette with an island counter, perfect for cooking, gathering, and sharing meals. The separate bedroom opens onto a private balcony, an ideal spot to soak in the sunrise or starlit sky. Adjacent, the shower area blends comfort with the outdoors. A high-ventilated roof and red oxide flooring keep the space naturally cool and airy. Keeth House IX invites you to slow down, reconnect with nature, and embrace the beauty of simple living.",
         images: [
           "/images/keeth-house-ix/1.JPG",
           "/images/keeth-house-ix/2.JPG",
@@ -439,7 +439,7 @@ export const phaseData = [
         propertyId: 9930,
         name: "De Cabin",
         description:
-          "De Cabin is a peaceful getaway, built from recycled wood to blend with nature. Perfect for conscious travelers or couples, it offers a quiet and refreshing stay. The open layout connects the living, dining, and kitchen areas, with large windows bringing in natural light and views of the greenery. A small kitchenette with an island counter makes meals easy, whether indoors or outdoors.",
+          "Wooden House provides 400 sq. ft. of cosy, comfortable space, ideal for up to 3 guests. The room's warm design and modern amenities create a tranquil retreat for relaxation. Whether you're here for a short or extended stay, the Wooden House offers a peaceful environment to unwind. Enjoy comfort and convenience in this inviting room, designed to make your stay enjoyable and memorable.",
         images: [
           "/images/de-cabin/1.JPG",
           "/images/de-cabin/2.JPG",
@@ -477,7 +477,7 @@ export const phaseData = [
         propertyId: 9930,
         name: "De Villa I",
         description:
-          "De Villa I offers a charming retreat that blends tradition with modern comfort. The cozy living area flows into a well-equipped kitchenette, creating a warm and inviting space. Dine outdoors under a roof, surrounded by nature's soothing sounds. The tranquil bedroom, with a garden-facing bed and air conditioning, ensures restful sleep. A cozy window seat invites moments of reading or quiet reflection.",
+          "Villa I offers a charming retreat that blends tradition with modern comfort. The cozy living area flows into a well-equipped kitchenette, creating a warm and inviting space Dine outdoors under a roof, surrounded by nature’s soothing sounds. The tranquil bedroom, with a garden-facing bed and air conditioning, ensures restful sleep. A cozy window seat invites moments of reading or quiet reflection. \n\n The highlight is the open-to-the-sky white bathtub beneath a neem tree—perfect for a refreshing soak under sunlight or starlit skies. More than just a stay, De Villa I offers a serene escape to slow down, connect with nature, and find inspiration.",
         images: [
           "/images/de-villa-i/1.JPG",
           "/images/de-villa-i/2.JPG",
@@ -513,7 +513,7 @@ export const phaseData = [
         propertyId: 9930,
         name: "De Villa II",
         description:
-          "De Villa II welcomes you with a traditional thinnai, a spacious veranda perfect for relaxing with a cup of chai. Inside, the open-plan living area flows into a well-equipped kitchenette, centered around a handcrafted wooden counter that doubles as a dining table or workspace. A unique highlight is the indoor bathroom that opens to the sky, letting you bathe under the moonlight or daylight.",
+          "A unique highlight is the indoor bathroom that opens to the sky, letting you bathe under the moonlight or daylight. The cozy, air-conditioned bedroom ensures restful sleep, offering a cool escape from the tropical warmth. For ultimate relaxation, unwind in the hammock corner, perfect for reading or simply soaking in the sounds of nature. A stay at De Villa II is a blend of tradition and comfort, designed for peace and connection with nature.",
         images: [
           "/images/de-villa-ii/1.JPG",
           "/images/de-villa-ii/2.JPG",

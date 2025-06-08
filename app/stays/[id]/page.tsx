@@ -160,7 +160,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <Link
-              href="/stays"
+              href="/"
               className="inline-flex items-center text-white hover:text-primary transition-colors mb-4"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
@@ -187,21 +187,8 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
               <h2 className="text-2xl font-bold mb-6 text-primary">
                 The Story of {house.name}
               </h2>
-              <p className="text-foreground/80 mb-6 leading-relaxed">
+              <p className="text-foreground/80 mb-6 leading-relaxed whitespace-pre-line">
                 {house.description}
-              </p>
-              <p className="text-foreground/80 mb-6 leading-relaxed">
-                Built with traditional techniques by local artisans, this
-                cottage embodies the essence of Keeth House's philosophy -
-                connecting with nature while enjoying modern comforts. The
-                natural materials used in construction create a space that
-                breathes with the environment, keeping it cool in summer and
-                warm in winter.
-              </p>
-              <p className="text-foreground/80 leading-relaxed">
-                Every element of the design has been carefully considered to
-                minimize environmental impact while maximizing your comfort and
-                connection to the surrounding nature.
               </p>
             </section>
 
