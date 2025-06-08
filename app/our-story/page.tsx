@@ -430,7 +430,7 @@ export default function OurStoryPage() {
                   animationPlayState: isMounted ? "running" : "paused",
                 }}
               >
-                <Link href="/stays">
+                <Link href="/">
                   <Button
                     size="lg"
                     onClick={() => window.scrollTo(0, 0)}

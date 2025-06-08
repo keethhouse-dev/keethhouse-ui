@@ -337,8 +337,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { name: "Our Story", href: "/our-story" },
-                { name: "Our Houses", href: "/stays#phase-1" },
-                { name: "Before You Arrive", href: "/stays#before-arrival" },
+                { name: "Our Houses", href: "/#phase-1" },
+                { name: "Before You Arrive", href: "/#before-arrival" },
                 { name: "Frequently Asked Questions", href: "/faq" },
                 { name: "Privacy Policy", href: "/privacy-policy" },
                 { name: "Contact", href: "/contact" },
@@ -410,7 +410,7 @@ const Footer = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
-              <Link href="/stays#phase-1">
+              <Link href="/">
                 <Button className="w-full bg-primary hover:bg-primary/80 text-white relative overflow-hidden group">
                   <span className="relative z-10 flex items-center">
                     Book Your Stay Now

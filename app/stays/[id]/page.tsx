@@ -26,7 +26,6 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = React.use(params); // ✅ unwrap the Promise
   const [galleryOpen, setGalleryOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [scrollData, setScrollData] = useState({ y: 0, opacity: 1 });
   const router = useRouter();
@@ -54,11 +53,10 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
 
     // If house not found, redirect to stays page
     if (!houseData.current) {
-      router.push("/stays");
+      router.push("/");
     } else {
       // Scroll to top when component mounts
       window.scrollTo(0, 0);
-      setIsLoaded(true);
     }
   }, [id, router]);
 
