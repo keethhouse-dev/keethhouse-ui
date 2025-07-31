@@ -25,24 +25,29 @@ export default function FAQPage() {
       title: "Booking & Reservations",
       faqs: [
         {
-          question: "What is the check-in and check-out time?",
+          question: "What are the check-in and check-out timings?",
           answer:
-            "Check-In is at 12:00 PM and Check-Out is at 10:00 AM. Early check-in or late check-out may be arranged based on availability.",
+            "Check-in time is 12pm and Check-out time is 10am.",
         },
         {
-          question: "How far in advance should I book?",
+          question: "Is early check-in possible?",
           answer:
-            "We recommend booking at least 2-3 months in advance, especially during peak season (October to March). For weekends and holidays, booking even earlier is advisable.",
+            "Your early check-in request is important to us, and we would love to accommodate it based on the availability. Kindly check with us a day prior to the reservation. However, please note that we might have a booking scheduled prior to your arrival, which means we can only provide you with access to the house by 12pm. \n\nWe kindly request your understanding and cooperation in planning your arrival accordingly for 12pm. Your cooperation is greatly appreciated.",
         },
         {
-          question: "What is your cancellation policy?",
+          question: "How early should I book my stay at Keeth House?",
           answer:
-            "Cancellations made 14 days or more before check-in receive a full refund. Cancellations made 7-13 days before check-in receive a 50% refund. Cancellations made less than 7 days before check-in are non-refundable.",
+            "We recommend booking a month or 2 in advance, especially during the peak season (October to March). For weekends and holidays, it’s best to book even earlier to ensure availability.",
         },
         {
-          question: "Can I modify my reservation dates?",
+          question: "What is the cancellation policy?",
           answer:
-            "Yes, reservation modifications are possible subject to availability. Please contact us at least 7 days before your scheduled arrival to request changes.",
+            "If cancellation is done 14 or more days prior to arrival, then 10% of the booking amount will be charged. If cancellation is done within 14 days of arrival, then full amount will be charged.",
+        },
+        {
+          question: "Can I change my booking dates after confirmation?",
+          answer:
+            "Date Amendment Policy \n\nIf a date change is requested 14 or more days prior to arrival, we will do our best to accommodate the change, subject to availability. If the request is made within 14 days of arrival, no amendments can be made.",
         },
       ],
     },
@@ -52,23 +57,24 @@ export default function FAQPage() {
         {
           question: "Is there Wi-Fi available?",
           answer:
-            "Yes, we provide free Wi-Fi in all our houses, except the Tree House. The connection is strong enough for remote work in most spaces. However, please note that due to our natural surroundings and eco-friendly construction, signal strength may vary slightly in some corners.",
+            "Yes, we offer Wi-Fi in all our houses, except the Khaya Nest, where the connectivity is limited. In most areas, the connection is suitable for remote work.",
         },
         {
-          question: "Are meals included?",
+          question: "Are meals included in the stay?",
           answer:
-            "Meals are not included with your stay, but we offer fresh, organic vegetarian breakfast and lunch at an additional cost.\n\nBreakfast: ₹400 per couple | Timing: 8:30 AM – 10:00 AM\n\nLunch: ₹700 per couple | Timing: 12:30 PM – 1:30 PM\n\nAll meals are prepared using locally-sourced ingredients. Please place your orders in advance so we can serve you better.",
+            "We’re delighted to offer South Indian breakfast and lunch. \n\n• Breakfast: ₹400 per couple \n• Lunch: ₹700 per couple \n\nPlease inform us at least a day in advance so we can prepare your meals with care. We’d also be happy to suggest excellent cafés in Auroville and Pondicherry for you to explore.",
         },
         {
-          question: "Do the cottages have air conditioning?",
+          question: "What’s the weather like at Keeth House?",
           answer:
-            "Our cottages are designed with natural cooling in mind. Most come with ceiling fans and thatch roofing, which provides excellent natural insulation. For guests who prefer air conditioning, Villa I and Villa II are equipped with eco-friendly AC units",
+            "Keeth House is designed with eco-conscious materials that help maintain comfort even during warm days. While afternoons can be slightly hot, the evenings are pleasant. Surrounded by trees, the natural setting creates a noticeable temperature drop at night—perfect for a relaxing and restful stay.\n\nFor added comfort, de Villa I and de Villa II in Keeth House Phase III are equipped with air-conditioning.",
         },
         {
-          question: "Are bathroom facilities private?",
+          question: "Does Keeth House have private bathrooms?",
           answer:
-            "Yes, all our cottages have private bathrooms. Some feature outdoor showers or open-to-sky bathing areas for a unique nature experience, but all are completely private.",
+            "Yes, all our houses have private bathrooms. Some feature open-to-sky showers and bathtubs for a unique and refreshing experience with nature, while still ensuring complete privacy.",
         },
+
       ],
     },
     {
