@@ -130,6 +130,10 @@ export const phaseData = [
           "/images/keeth-house-iii/19.jpg",
           "/images/keeth-house-iii/20.jpg",
           "/images/keeth-house-iii/21.jpg",
+          "/images/keeth-house-iii/22.jpg",
+          "/images/keeth-house-iii/23.jpg",
+          "/images/keeth-house-iii/24.jpg",
+          "/images/keeth-house-iii/25.jpg",
         ],
         specializations: [
           { name: "Balcony", icon: Umbrella },
@@ -360,21 +364,16 @@ export const phaseData = [
         description:
           "Keeth House VIII is a refreshing take in Keeth House living, opening directly to a private swimming pool that sets the tone for a nature-immersed stay. At its heart, an open-to-sky roof invites sunlight and rain indoors, blurring the line between shelter and sky. The house features a spacious bedroom and a warm dining area perfect for gathering and connecting. Designed for those who seek comfort without losing touch with the outdoors, Keeth House VIII offers a serene and elemental living experience.",
         images: [
-          "/images/keeth-house-viii/1.JPG",
-          "/images/keeth-house-viii/2.JPG",
-          "/images/keeth-house-viii/3.JPG",
-          "/images/keeth-house-viii/4.JPG",
-          "/images/keeth-house-viii/5.JPG",
-          "/images/keeth-house-viii/6.JPG",
-          "/images/keeth-house-viii/7.JPG",
-          "/images/keeth-house-viii/8.JPG",
-          "/images/keeth-house-viii/9.JPG",
-          "/images/keeth-house-viii/10.JPG",
-          "/images/keeth-house-viii/11.JPG",
-          "/images/keeth-house-viii/12.JPG",
-          "/images/keeth-house-viii/13.JPG",
-          "/images/keeth-house-viii/14.JPG",
-          "/images/keeth-house-viii/15.JPG"
+          "/images/keeth-house-viii/1.jpg",
+          "/images/keeth-house-viii/2.jpg",
+          "/images/keeth-house-viii/3.jpg",
+          "/images/keeth-house-viii/4.jpg",
+          "/images/keeth-house-viii/5.jpg",
+          "/images/keeth-house-viii/6.jpg",
+          "/images/keeth-house-viii/7.jpg",
+          "/images/keeth-house-viii/8.jpg",
+          "/images/keeth-house-viii/9.jpg",
+          "/images/keeth-house-viii/10.jpg"
         ],
         specializations: [
           { name: "Swimming Pool", icon: Waves },
