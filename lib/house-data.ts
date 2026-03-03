@@ -21,8 +21,8 @@ export const phaseData = [
   {
     id: "phase-1",
     title: "Phase I",
-    description:
-      "Keeth House Phase I is a cozy and intimate property that accommodates three of our beautiful houses. With vibrant trees and foliage covering almost every inch of the ground, the property is designed to make you feel relaxed from the moment you step in. We have a kitchen/diner right within the premises where you are welcome to come in and relish a hearty homemade breakfast or a hot beverage.",
+    // description: "Keeth House Phase I is a cozy and intimate property that accommodates three of our beautiful houses. With vibrant trees and foliage covering almost every inch of the ground, the property is designed to make you feel relaxed from the moment you step in. We have a kitchen/diner right within the premises where you are welcome to come in and relish a hearty homemade breakfast or a hot beverage.",
+    description:"Keeth House Phase I is reopening soon. The space is currently undergoing thoughtful updates to enhance your stay experience. We look forward to hosting you again with renewed warmth and attention to detail. Thank you for being part of our journey!",
     houses: [
       {
         id: "keeth-house-1",
@@ -62,6 +62,7 @@ export const phaseData = [
         map: '/images/maps/Phase-I-Map.png',
         navigation: 'https://maps.app.goo.gl/AXWTNaZcf21UXbTY8',
         guests: 2,
+        comingSoon: true,
       },
       {
         id: "keeth-house-2",
@@ -101,6 +102,7 @@ export const phaseData = [
         map: '/images/maps/Phase-I-Map.png',
         navigation: 'https://maps.app.goo.gl/AXWTNaZcf21UXbTY8',
         guests: 4,
+        comingSoon: true,
       },
       {
         id: "keeth-house-3",
@@ -144,6 +146,7 @@ export const phaseData = [
          map: '/images/maps/Phase-I-Map.png',
         navigation: 'https://maps.app.goo.gl/AXWTNaZcf21UXbTY8',
         guests: 2,
+        comingSoon: true,
       },
     ],
   },
