@@ -237,7 +237,7 @@ export default function TreeTopKafePage() {
                   </div>
                   <div className="bg-gray-50 p-4 rounded-xl">
                     <h4 className="font-semibold text-primary mb-1">Capacity</h4>
-                    <p className="text-gray-600">Intimate seating for 20</p>
+                    <p className="text-gray-600">Intimate seating for 50</p>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-xl">
                     <h4 className="font-semibold text-primary mb-1">Specialty</h4>
