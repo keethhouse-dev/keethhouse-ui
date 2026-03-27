@@ -233,7 +233,7 @@ export default function TreeTopKafePage() {
                 <div className="grid grid-cols-2 gap-4 pt-4">
                   <div className="bg-gray-50 p-4 rounded-xl">
                     <h4 className="font-semibold text-primary mb-1">Elevation</h4>
-                    <p className="text-gray-600">15+ feet above ground</p>
+                    <p className="text-gray-600">19+ feet above ground</p>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-xl">
                     <h4 className="font-semibold text-primary mb-1">Capacity</h4>
