@@ -125,20 +125,10 @@ export default function TreeTopKafePage() {
             </p>
 
             <p className="text-lg text-white mb-10 max-w-2xl mx-auto">
-              Experience coffee like never before, perched high above the ground in our handcrafted 
+              Experience coffee like never before, perched high above the ground in our handcrafted
               treehouse kafe, built with love by the Tree House Community.
             </p>
 
-            <Button
-              onClick={scrollToAbout}
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white hover-scale px-8 py-6 text-lg"
-            >
-              <span className="flex items-center">
-                Discover the Kafe
-                <ArrowDown className="ml-2 h-5 w-5 animate-pulse" />
-              </span>
-            </Button>
           </div>
         </div>
 
@@ -238,14 +228,14 @@ export default function TreeTopKafePage() {
                 className="space-y-6"
               >
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Welcome to Tree Top Kafe, a one-of-a-kind coffee experience nestled high among the trees 
-                  at Keeth House. Our kafe is not just a place to grab a cup of coffee &ndash; it&apos;s a journey 
-                  into the canopy, where you can savor artisanal beverages while surrounded by the whispers 
+                  Welcome to Tree Top Kafe, a one-of-a-kind coffee experience nestled high among the trees
+                  at Keeth House. Our kafe is not just a place to grab a cup of coffee &ndash; it&apos;s a journey
+                  into the canopy, where you can savor artisanal beverages while surrounded by the whispers
                   of leaves and birdsong.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Built entirely from sustainable materials &ndash; locally sourced wood, bamboo, and natural 
-                  fibers &ndash; the Tree Top Kafe embodies our commitment to eco-conscious living. Every beam, 
+                  Built entirely from sustainable materials &ndash; locally sourced wood, bamboo, and natural
+                  fibers &ndash; the Tree Top Kafe embodies our commitment to eco-conscious living. Every beam,
                   every plank, and every nail tells a story of craftsmanship and dedication to preserving nature.
                 </p>
                 <div className="grid grid-cols-2 gap-4 pt-4">
@@ -292,7 +282,7 @@ export default function TreeTopKafePage() {
                 </h2>
                 <div className="h-1 bg-primary mx-auto mb-8 w-20" />
                 <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                  The creation of Tree Top Kafe was a labor of love, combining traditional building 
+                  The creation of Tree Top Kafe was a labor of love, combining traditional building
                   techniques with innovative design to create a structure that lives in harmony with its environment.
                 </p>
               </motion.div>
@@ -354,13 +344,13 @@ export default function TreeTopKafePage() {
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold">The Journey Up</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Reaching the Tree Top Kafe is an experience in itself. A handcrafted wooden bridge 
-                  connects you to the main platform, swaying gently as you walk, surrounded by marigold 
-                  garlands and the rustling of leaves. The ascent builds anticipation, transforming a 
+                  Reaching the Tree Top Kafe is an experience in itself. A handcrafted wooden bridge
+                  connects you to the main platform, swaying gently as you walk, surrounded by marigold
+                  garlands and the rustling of leaves. The ascent builds anticipation, transforming a
                   simple coffee break into an adventure.
                 </p>
                 <p className="text-gray-700 leading-relaxed">
-                  The entire construction took over six months, with every joint and connection designed 
+                  The entire construction took over six months, with every joint and connection designed
                   to flex naturally with the trees&apos; movement, ensuring both safety and longevity.
                 </p>
               </div>
@@ -445,26 +435,26 @@ export default function TreeTopKafePage() {
                 className="order-2 md:order-1 space-y-6"
               >
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  The Tree House Community is a passionate group of architects, carpenters, and nature 
-                  enthusiasts united by a shared vision &ndash; to create spaces that celebrate the harmony 
+                  The Tree House Community is a passionate group of architects, carpenters, and nature
+                  enthusiasts united by a shared vision &ndash; to create spaces that celebrate the harmony
                   between human habitation and the natural world.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Founded on the principles of sustainable construction and community collaboration, 
-                  this dedicated team has been building treehouse structures around Auroville for over 
-                  a decade. Their work goes beyond construction; it&apos;s about creating experiences that 
+                  Founded on the principles of sustainable construction and community collaboration,
+                  this dedicated team has been building treehouse structures around Auroville for over
+                  a decade. Their work goes beyond construction; it&apos;s about creating experiences that
                   reconnect people with nature.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Every member of the community brings unique skills &ndash; from traditional Tamil carpentry 
-                  techniques to modern structural engineering &ndash; all working together to ensure each 
+                  Every member of the community brings unique skills &ndash; from traditional Tamil carpentry
+                  techniques to modern structural engineering &ndash; all working together to ensure each
                   creation is safe, beautiful, and environmentally responsible.
                 </p>
                 <div className="bg-primary/10 p-6 rounded-xl">
                   <h4 className="font-bold text-lg mb-2">The Mama Khaya</h4>
                   <p className="text-gray-700">
-                    Our kafe is built around &quot;The Mama Khaya&quot; &ndash; a magnificent tree that has stood 
-                    for over a century. The community honors this tree with traditional ceremonies, 
+                    Our kafe is built around &quot;The Mama Khaya&quot; &ndash; a magnificent tree that has stood
+                    for over a century. The community honors this tree with traditional ceremonies,
                     symbolizing our respect for the land and its ancient inhabitants.
                   </p>
                 </div>
@@ -530,7 +520,7 @@ export default function TreeTopKafePage() {
               Visit Tree Top Kafe
             </h2>
             <p className="text-lg text-gray-700 mb-8">
-              Open daily for guests of Keeth House. Experience artisanal coffee, fresh juices, 
+              Open daily for guests of Keeth House. Experience artisanal coffee, fresh juices,
               and homemade gelato while immersed in the beauty of nature.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
