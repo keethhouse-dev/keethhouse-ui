@@ -96,7 +96,7 @@ export default function TreeTopKafePage() {
         {/* Content with simplified animations */}
         <div className="container mx-auto px-4 relative z-10 pt-20">
           <div
-            className="max-w-5xl text-left"
+            className="max-w-4xl mx-auto text-center"
             style={{
               opacity: isMounted ? 1 : 0,
               transform: isMounted ? "translateY(0)" : "translateY(30px)",
@@ -113,7 +113,7 @@ export default function TreeTopKafePage() {
             </h1>
 
             <div
-              className="h-1 bg-primary mb-8"
+              className="h-1 bg-primary mx-auto mb-8"
               style={{
                 width: isMounted ? "100px" : "0",
                 transition: "width 1s ease",
@@ -124,21 +124,10 @@ export default function TreeTopKafePage() {
               &quot;COFFEE AMONG THE CANOPY&quot;
             </p>
 
-            <p className="text-lg text-white mb-10 max-w-2xl">
+            <p className="text-lg text-white mb-10 max-w-2xl mx-auto">
               Experience coffee like never before, perched high above the ground in our handcrafted 
               treehouse kafe, built with love by the Tree House Community.
             </p>
-
-            <div className="grid grid-cols-2 gap-6 mb-10 max-w-md">
-              <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                <h4 className="font-semibold text-primary text-sm mb-1">Capacity</h4>
-                <p className="text-white">Intimate seating for 50</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
-                <h4 className="font-semibold text-primary text-sm mb-1">Elevation</h4>
-                <p className="text-white">19+ feet above ground</p>
-              </div>
-            </div>
 
             <Button
               onClick={scrollToAbout}
@@ -262,11 +251,11 @@ export default function TreeTopKafePage() {
                 <div className="grid grid-cols-2 gap-4 pt-4">
                   <div className="bg-gray-50 p-4 rounded-xl">
                     <h4 className="font-semibold text-primary mb-1">Elevation</h4>
-                    <p className="text-gray-600">19+ feet above ground</p>
+                    <p className="text-gray-600">15+ feet above ground</p>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-xl">
                     <h4 className="font-semibold text-primary mb-1">Capacity</h4>
-                    <p className="text-gray-600">Intimate seating for 50</p>
+                    <p className="text-gray-600">Intimate seating for 20</p>
                   </div>
                   <div className="bg-gray-50 p-4 rounded-xl">
                     <h4 className="font-semibold text-primary mb-1">Specialty</h4>
