@@ -301,7 +301,7 @@ export default function StaysPage() {
         }}
       >
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/TheKhayaNest.JPG-DbE6ORLqjP5Myq2DSrbH6qOOr1KVZF.jpeg"
+          src="/images/keethhouse-hero.png"
           alt="Keeth House Tree House"
           fill
           priority
@@ -310,7 +310,7 @@ export default function StaysPage() {
           placeholder="blur"
           blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiM3NzU1MzMiLz48L3N2Zz4="
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/60" />
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/60" /> */}
 
         {/* Dynamic dot overlay with mouse interaction - only render if mounted and not reduced motion */}
         {mounted && !isReducedMotion && (
@@ -352,35 +352,20 @@ export default function StaysPage() {
         {heroBackground}
 
         {/* Content */}
-        <div className="container mx-auto px-4 relative z-10 pt-16 md:pt-20 mobile-spacing">
-          <div className="max-w-4xl text-left">
+        <div className="container mx-auto px-4 relative z-10 pt-56 mobile-spacing">
+          <div className="max-w-4xl mx-auto text-center mt-[180px]">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
-              className="heading-large-responsive font-bold text-white leading-tight mb-4 md:mb-6"
+              className="text-[3.5rem] font-normal text-white leading-tight mb-2 md:mb-3 mx-auto"
             >
-              <motion.span
-                className="inline-block"
-                animate={
-                  !isReducedMotion
-                    ? {
-                        y: [0, -10, 0],
-                      }
-                    : {}
-                }
-                transition={{
-                  duration: 5,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "reverse",
-                  ease: "easeInOut",
-                }}
-              >
+              <motion.span className="inline-block">
                 Experience Natural Living
               </motion.span>
             </motion.h1>
 
-            <motion.p
+            {/* <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -388,10 +373,10 @@ export default function StaysPage() {
                 delay: 0.1,
                 ease: [0.33, 1, 0.68, 1],
               }}
-              className="text-lg md:text-2xl text-primary mb-4 md:mb-8"
+              className="text-center mx-auto text-lg md:text-2xl text-primary mb-4 md:mb-8"
             >
               FROM UNIQUE HOUSES TO TREE HOUSE
-            </motion.p>
+            </motion.p> */}
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -401,61 +386,13 @@ export default function StaysPage() {
                 delay: 0.2,
                 ease: [0.33, 1, 0.68, 1],
               }}
-              className="text-responsive text-white mb-6 md:mb-10 max-w-2xl"
+              className="text-center mx-auto text-[14px] font-normal text-white mb-6 md:mb-10 max-w-xl leading-relaxed"
             >
-              Each of our houses tells a unique story, blending traditional
-              craftsmanship with thoughtful amenities. Discover the perfect
-              retreat for your natural living experience.
+              Keeth House is a memory of the land and it’s people.
+              <br />
+              House that breathes, sways with the wind, absorbs the rains and dries under the sun.
             </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.3,
-                ease: [0.33, 1, 0.68, 1],
-              }}
-              className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6"
-            >
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="w-full sm:w-auto"
-              >
-                <Button
-                  onClick={scrollToPhases}
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white relative overflow-hidden group px-6 md:px-8 py-4 md:py-6 text-base md:text-lg w-full sm:w-auto touch-target"
-                >
-                  <span className="relative z-10 flex items-center">
-                    Explore Our Houses
-                    <motion.div
-                      animate={
-                        !isReducedMotion
-                          ? {
-                              y: [0, 5, 0],
-                            }
-                          : {}
-                      }
-                      transition={{
-                        duration: 1.5,
-                        repeat: Number.POSITIVE_INFINITY,
-                        repeatType: "reverse",
-                      }}
-                    >
-                      <ArrowDown className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-                    </motion.div>
-                  </span>
-                  <motion.span
-                    className="absolute inset-0 bg-white opacity-30"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.5 }}
-                  />
-                </Button>
-              </motion.div>
-            </motion.div>
+          
           </div>
         </div>
 
@@ -474,7 +411,7 @@ export default function StaysPage() {
                 transition={{ delay: 1.0, duration: 0.4 }}
                 className="text-white text-sm font-medium mb-2 tracking-wider"
               >
-                Scroll to explore
+                Explore our Houses
               </motion.span>
               <motion.div
                 className="h-16 w-10 border border-white/50 rounded-full flex justify-center p-2 backdrop-blur-sm"

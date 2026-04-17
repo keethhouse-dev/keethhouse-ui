@@ -325,7 +325,12 @@
   }
 
   .heading-large-responsive {
-    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    /* Reduced size by about 10% for the hero heading */
+    font-size: clamp(2rem, 6vw, 4rem);
+  }
+
+  .text-responsive-sm {
+    font-size: clamp(0.9rem, 3.6vw, 1.125rem);
   }
 
   /* Improved touch targets for mobile */

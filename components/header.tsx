@@ -121,9 +121,15 @@ const Header = () => {
       )}
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <Link href="/" className="relative z-10">
-            <Image src="/logo.svg" alt="Keeth House Logo" width={160} height={80} className="h-12 md:h-16 w-auto" />
+            <Image
+              src={isScrolled ? "/logo.svg" : "/logo.png"}
+              alt="Keeth House Logo"
+              width={180}
+              height={100}
+              className="h-12 md:h-16 w-auto"
+            />
           </Link>
         </motion.div>
 
