@@ -11,6 +11,7 @@ Keeth House is an organically built eco-stay situated near the beautiful town of
 
 ## Tech Stack
 
+
 - **Frontend**: React, Next.js, TypeScript
 - **Styling**: Tailwind CSS, Framer Motion
 - **Icons**: Lucide React
