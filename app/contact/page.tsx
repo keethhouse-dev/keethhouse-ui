@@ -49,7 +49,7 @@ export default function ContactPage() {
           }}
         >
           <Image
-            src="/images/contact-us.jpg"
+            src="/images/contact-us.webp"
             alt="Keeth House Reception Desk"
             fill
             priority

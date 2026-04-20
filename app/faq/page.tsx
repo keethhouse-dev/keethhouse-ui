@@ -165,7 +165,7 @@ const faqCategories = [
           }}
         >
           <Image
-            src="/images/faq.jpg"
+            src="/images/faq.webp"
             alt="Keeth House FAQ Background"
             fill
             priority

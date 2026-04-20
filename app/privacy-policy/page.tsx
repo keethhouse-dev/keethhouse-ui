@@ -60,7 +60,7 @@ export default function PrivacyPolicyPage() {
           }}
         >
           <Image
-            src="/images/privacy-policy.png"
+            src="/images/privacy-policy.webp"
             alt="Keeth House Privacy Policy"
             fill
             priority

@@ -72,7 +72,7 @@ export default function TeamSection() {
           >
             <div className="relative z-10 overflow-hidden rounded-xl hover-scale">
               <Image
-                src="/images/our-story/team.png"
+                src="/images/our-story/team.webp"
                 alt="The Keeth House Team"
                 width={600}
                 height={500}

@@ -39,7 +39,7 @@ export default function HostStory() {
           >
             <div className="relative z-10 overflow-hidden rounded-xl hover-scale">
               <Image
-                src="/images/our-story/host.jpeg"
+                src="/images/our-story/host.webp"
                 alt="Sankar - Keeth House Host"
                 width={500}
                 height={700}
