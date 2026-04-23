@@ -17,7 +17,7 @@ export default function SocialRail() {
       </RailLink>
       <div className="h-px bg-[var(--story-ink)]/15 mx-3" aria-hidden />
       <RailLink
-        href="mailto:reservations@keethhouse.com"
+        href="mailto:reservations@keethhouse.in"
         label="Email Keeth House"
       >
         <Mail className="h-[18px] w-[18px]" strokeWidth={1.6} />

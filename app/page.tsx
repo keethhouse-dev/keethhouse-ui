@@ -39,20 +39,6 @@ const PhaseSection = React.memo(
       >
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto mb-12 md:mb-16 text-center">
-            <p
-              className="uppercase text-[var(--story-ink)]/85 mb-4"
-              style={{
-                letterSpacing: "0.32em",
-                fontSize: "11px",
-                fontWeight: 500,
-              }}
-            >
-              {phase.id === "phase-1"
-                ? "Phase 01"
-                : phase.id === "phase-2"
-                ? "Phase 02"
-                : "Phase 03"}
-            </p>
             <h2
               className="text-[var(--story-ink)] mb-4"
               style={{
@@ -196,7 +182,7 @@ const HouseCard = React.memo(
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out z-10"></div>
         </div>
 
-        <div className="p-4 md:p-6">
+        <div className="p-4 md:p-6 text-center">
           <h3
             className="text-[var(--story-ink)] mb-2 group-hover:text-primary transition-colors duration-300"
             style={{

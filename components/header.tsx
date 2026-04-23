@@ -247,33 +247,92 @@ const Header = () => {
             <AnimatePresence>
               {isDropdownOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute right-0 mt-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden z-50 w-auto min-w-[600px] border border-primary/20"
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute right-0 mt-3 bg-white overflow-hidden z-50 w-[520px] shadow-[0_18px_48px_-20px_rgba(29,25,20,0.25)] border border-[var(--story-ink)]/10"
                 >
-                  <div className="py-3 px-4">
-                    {phaseData.map((phase, phaseIndex) => (
-                      <div key={phase.id} className="mb-3 last:mb-0">
-                        <h3 className="text-sm font-semibold text-primary border-b border-primary/20 pb-1 mb-2">
-                          {phase.title}
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {phase?.houses?.map((house) => (
-                            <Link
-                              key={house.id}
-                              href={`/stays/${house.id}`}
-                              onClick={() => setIsDropdownOpen(false)}
-                              className="px-4 py-2 text-sm bg-gray-50/80 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-full transition-all duration-300 whitespace-nowrap transform hover:scale-105 shadow-sm"
+                  <div className="grid grid-cols-2">
+                    {phaseData
+                      .filter((phase) => phase.id !== "phase-1")
+                      .map((phase, i) => {
+                        const accent =
+                          phase.id === "phase-2"
+                            ? "var(--story-moss)"
+                            : "var(--story-terra)";
+                        const shortLabel =
+                          phase.id === "phase-2" ? "Phase II" : "Phase III";
+                        return (
+                          <div
+                            key={phase.id}
+                            className={`relative px-7 py-7 ${
+                              i === 0
+                                ? "border-r border-[var(--story-ink)]/10"
+                                : ""
+                            }`}
+                          >
+                            {/* phase eyebrow with leading color mark */}
+                            <div className="flex items-center gap-2 mb-3">
+                              <span
+                                aria-hidden
+                                className="inline-block w-4 h-px"
+                                style={{ backgroundColor: accent }}
+                              />
+                              <p
+                                className="uppercase"
+                                style={{
+                                  color: accent,
+                                  letterSpacing: "0.32em",
+                                  fontSize: "10px",
+                                  fontWeight: 600,
+                                }}
+                              >
+                                {shortLabel}
+                              </p>
+                            </div>
+                            <h3
+                              className="text-[var(--story-ink)] mb-5"
+                              style={{
+                                fontWeight: 500,
+                                fontSize: "15px",
+                                letterSpacing: "0.005em",
+                                lineHeight: 1.25,
+                              }}
                             >
-                              {house.name}
-                            </Link>
-                          ))}
-                        </div>
-                        {phaseIndex < phaseData.length - 1 && <div className="h-px w-full bg-gray-100 my-2"></div>}
-                      </div>
-                    ))}
+                              {phase.title}
+                            </h3>
+                            <ul className="space-y-1.5">
+                              {phase?.houses?.map((house) => (
+                                <li key={house.id}>
+                                  <Link
+                                    href={`/stays/${house.id}`}
+                                    onClick={() => setIsDropdownOpen(false)}
+                                    className="group/link relative inline-flex items-center py-0.5 text-[12.5px] text-[var(--story-ink)]/80 transition-colors"
+                                    onMouseEnter={(e) => {
+                                      (
+                                        e.currentTarget as HTMLElement
+                                      ).style.color = accent;
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      (
+                                        e.currentTarget as HTMLElement
+                                      ).style.color = "";
+                                    }}
+                                  >
+                                    <span
+                                      aria-hidden
+                                      className="absolute left-[-14px] top-1/2 -translate-y-1/2 w-2 h-px opacity-0 group-hover/link:opacity-100 transition-opacity duration-200"
+                                      style={{ backgroundColor: accent }}
+                                    />
+                                    {house.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        );
+                      })}
                   </div>
                 </motion.div>
               )}
@@ -341,36 +400,70 @@ const Header = () => {
                 <AnimatePresence>
                   {isDropdownOpen && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute left-0 right-0 mt-2 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden z-50 border border-primary/20"
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute left-0 right-0 mt-2 bg-white overflow-hidden z-50 border border-[var(--story-ink)]/10 shadow-[0_16px_36px_-14px_rgba(29,25,20,0.2)]"
                     >
-                      <div className="py-4 px-4">
-                        {phaseData.map((phase, phaseIndex) => (
-                          <div key={phase.id} className="mb-4 last:mb-0">
-                            <h3 className="text-sm font-semibold text-primary border-b border-primary/20 pb-1 mb-2">
-                              {phase.title}
-                            </h3>
-                            <div className="flex flex-wrap gap-2">
-                              {phase?.houses?.map((house) => (
-                                <Link
-                                  key={house.id}
-                                  href={`/stays/${house.id}`}
-                                  onClick={() => {
-                                    setIsDropdownOpen(false)
-                                    setIsOpen(false)
+                      <div className="grid grid-cols-2 divide-x divide-[var(--story-ink)]/10">
+                        {phaseData
+                          .filter((phase) => phase.id !== "phase-1")
+                          .map((phase) => {
+                            const accent =
+                              phase.id === "phase-2"
+                                ? "var(--story-moss)"
+                                : "var(--story-terra)"
+                            const shortLabel =
+                              phase.id === "phase-2" ? "Phase II" : "Phase III"
+                            return (
+                              <div key={phase.id} className="relative px-4 py-4">
+                                <div
+                                  aria-hidden
+                                  className="absolute top-0 left-0 right-0 h-[3px]"
+                                  style={{ backgroundColor: accent }}
+                                />
+                                <p
+                                  className="uppercase mb-1.5"
+                                  style={{
+                                    color: accent,
+                                    letterSpacing: "0.32em",
+                                    fontSize: "9.5px",
+                                    fontWeight: 600,
                                   }}
-                                  className="px-3 py-1.5 text-xs bg-gray-50/80 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-full transition-all duration-300"
                                 >
-                                  {house.name}
-                                </Link>
-                              ))}
-                            </div>
-                            {phaseIndex < phaseData.length - 1 && <div className="h-px w-full bg-gray-100 my-3"></div>}
-                          </div>
-                        ))}
+                                  {shortLabel}
+                                </p>
+                                <h3
+                                  className="text-[var(--story-ink)] mb-2.5"
+                                  style={{
+                                    fontWeight: 500,
+                                    fontSize: "14px",
+                                    letterSpacing: "0.005em",
+                                    lineHeight: 1.2,
+                                  }}
+                                >
+                                  {phase.title}
+                                </h3>
+                                <ul className="space-y-1">
+                                  {phase?.houses?.map((house) => (
+                                    <li key={house.id}>
+                                      <Link
+                                        href={`/stays/${house.id}`}
+                                        onClick={() => {
+                                          setIsDropdownOpen(false)
+                                          setIsOpen(false)
+                                        }}
+                                        className="block py-0.5 text-[12px] text-[var(--story-ink)]/80"
+                                      >
+                                        {house.name}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )
+                          })}
                       </div>
                     </motion.div>
                   )}

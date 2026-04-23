@@ -304,7 +304,7 @@ const faqCategories = [
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <a
-                  href="mailto:hello@keethhouse.com"
+                  href="mailto:reservations@keethhouse.in"
                   className="inline-flex items-center justify-center uppercase px-6 py-3 bg-[var(--story-ink)] text-white hover:bg-[var(--story-ink)]/90 transition-colors"
                   style={{
                     fontSize: "11px",

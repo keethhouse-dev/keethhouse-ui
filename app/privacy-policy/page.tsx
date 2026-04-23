@@ -538,8 +538,8 @@ export default function PrivacyPolicyPage() {
                       <p>Near Auroville, Tamil Nadu, India</p>
                       <p>
                         Email:{" "}
-                        <a href="mailto:reservations@keethhouse.com" className="text-primary hover:underline">
-                          reservations@keethhouse.com
+                        <a href="mailto:reservations@keethhouse.in" className="text-primary hover:underline">
+                          reservations@keethhouse.in
                         </a>
                       </p>
                       <p>Phone: +91 8124338124</p>

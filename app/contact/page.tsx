@@ -67,8 +67,8 @@ export default function ContactPage() {
                     />
                     <ChannelRow
                       label="Email"
-                      value="reservations@keethhouse.com"
-                      href="mailto:reservations@keethhouse.com"
+                      value="reservations@keethhouse.in"
+                      href="mailto:reservations@keethhouse.in"
                     />
                   </div>
 
@@ -101,16 +101,17 @@ export default function ContactPage() {
 
                     <div className="grid grid-cols-2 gap-5 md:gap-6">
                       <AddressRow
-                        title="Phase II"
+                        title="Keeth House Phase II"
                         lines={[
                           "117, Edayanchavadi Road",
                           "near Red Earth Riding School",
                           "Irumbai, Auroville",
                           "Tamil Nadu 605111, India",
                         ]}
+                        mapHref="https://maps.app.goo.gl/XU2mB2xnxno23KVS8"
                       />
                       <AddressRow
-                        title="Phase III"
+                        title="Keeth House Phase III"
                         subtitle="Main Office"
                         lines={[
                           "118, Cross Road",
@@ -118,6 +119,7 @@ export default function ContactPage() {
                           "Edayanchavadi, Auroville",
                           "Tamil Nadu 605111, India",
                         ]}
+                        mapHref="https://maps.app.goo.gl/yjh3P49suiYNaVHS7"
                       />
                     </div>
                   </div>
@@ -171,10 +173,12 @@ function AddressRow({
   title,
   subtitle,
   lines,
+  mapHref,
 }: {
   title: string;
   subtitle?: string;
   lines: string[];
+  mapHref?: string;
 }) {
   return (
     <div className="text-center">
@@ -212,6 +216,21 @@ function AddressRow({
           <p key={i}>{l}</p>
         ))}
       </address>
+      {mapHref ? (
+        <a
+          href={mapHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center uppercase mt-4 text-[var(--story-ink)] border-b border-[var(--story-ink)]/30 pb-0.5 hover:text-primary hover:border-primary transition-colors"
+          style={{
+            fontSize: "10.5px",
+            letterSpacing: "0.24em",
+            fontWeight: 500,
+          }}
+        >
+          Get Directions
+        </a>
+      ) : null}
     </div>
   );
 }

@@ -80,20 +80,16 @@ const Footer = () => {
               className="h-20 md:h-24 w-auto mx-auto"
             />
           </Link>
-          <div className="flex items-center justify-center gap-4 mt-4">
-            <div aria-hidden className="h-px w-8 bg-[var(--story-ink)]/30" />
-            <p
-              className="text-[var(--story-ink)]/75"
-              style={{
-                fontFamily: SERIF,
-                fontStyle: "italic",
-                fontSize: "13px",
-              }}
-            >
-              Quiet stays, among the thatched roofs.
-            </p>
-            <div aria-hidden className="h-px w-8 bg-[var(--story-ink)]/30" />
-          </div>
+          <p
+            className="mt-5 max-w-xl mx-auto text-[13px] leading-[1.7] text-[var(--story-ink)]/80"
+          >
+            Experience natural living in our eco-friendly cottages near
+            Auroville. Disconnect from the city and reconnect with nature.
+          </p>
+          <div
+            aria-hidden
+            className="h-px w-10 bg-[var(--story-ink)]/30 mx-auto mt-5"
+          />
         </motion.div>
 
         {/* ——— Contact + social — single tidy strip ——— */}
@@ -102,7 +98,7 @@ const Footer = () => {
           className="mt-10 md:mt-12 max-w-3xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-center md:text-left"
         >
           <a
-            href="mailto:reservations@keethhouse.com"
+            href="mailto:reservations@keethhouse.in"
             className="self-center md:self-auto text-[var(--story-ink)] border-b border-[var(--story-ink)]/25 pb-1 hover:text-primary hover:border-primary transition-colors"
             style={{
               fontFamily: SERIF,
@@ -111,7 +107,7 @@ const Footer = () => {
               letterSpacing: "0.01em",
             }}
           >
-            reservations@keethhouse.com
+            reservations@keethhouse.in
           </a>
 
           <div className="flex items-center justify-center gap-6">
@@ -134,7 +130,7 @@ const Footer = () => {
               <MessageCircle className="h-[17px] w-[17px]" strokeWidth={1.5} />
             </a>
             <a
-              href="mailto:reservations@keethhouse.com"
+              href="mailto:reservations@keethhouse.in"
               aria-label="Email"
               className="text-[var(--story-ink)]/55 hover:text-[var(--story-ink)] transition-colors"
             >
@@ -143,39 +139,72 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        {/* ——— Bottom bar ——— */}
+        {/* ——— Quick links (raised — sit right under contact row) ——— */}
+        <motion.nav variants={rise} className="mt-6 md:mt-7">
+          <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="uppercase text-[var(--story-ink)]/70 hover:text-[var(--story-ink)] transition-colors"
+                  style={{
+                    fontSize: "10.5px",
+                    letterSpacing: "0.22em",
+                    fontWeight: 500,
+                  }}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </motion.nav>
+
+        {/* ——— Reserve Your Stay — primary amber CTA ——— */}
+        <motion.div variants={rise} className="mt-7 flex justify-center">
+          <a
+            href="https://bookings.keethhouse.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center uppercase overflow-hidden bg-primary text-white px-8 py-3.5 transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_-10px_rgba(241,176,76,0.65)]"
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.32em",
+              fontWeight: 500,
+            }}
+          >
+            {/* hover wash — deepens the amber on hover */}
+            <span
+              aria-hidden
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              style={{
+                background:
+                  "linear-gradient(135deg, hsl(var(--primary)) 0%, #c68a2c 100%)",
+              }}
+            />
+            <span className="relative flex items-center">
+              Reserve Your Stay
+              <span className="ml-3 inline-block transition-transform duration-300 group-hover:translate-x-1">
+                →
+              </span>
+            </span>
+          </a>
+        </motion.div>
+
+        {/* ——— Copyright — centered, slightly bigger ——— */}
         <motion.div
           variants={rise}
-          className="mt-10 md:mt-12 pt-5 border-t border-[var(--story-ink)]/15 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
+          className="mt-10 md:mt-12 pt-6 border-t border-[var(--story-ink)]/15 text-center"
         >
-          <nav className="order-2 md:order-1">
-            <ul className="flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2">
-              {links.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="uppercase text-[var(--story-ink)]/70 hover:text-[var(--story-ink)] transition-colors"
-                    style={{
-                      fontSize: "10.5px",
-                      letterSpacing: "0.22em",
-                      fontWeight: 500,
-                    }}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
           <p
-            className="order-1 md:order-2 uppercase text-[var(--story-ink)]/55 text-center md:text-right"
+            className="uppercase text-[var(--story-ink)]/65"
             style={{
-              fontSize: "10.5px",
+              fontSize: "12px",
               letterSpacing: "0.28em",
               fontWeight: 500,
             }}
           >
-            © {new Date().getFullYear()} Keeth House 
+            © {new Date().getFullYear()} Keeth House · Auroville, Tamil Nadu
           </p>
         </motion.div>
       </motion.div>
