@@ -58,7 +58,7 @@ export default function ContactPage() {
                   </div>
 
                   {/* Channels */}
-                  <div className="space-y-3 text-center text-[13.5px] md:text-[14px] leading-[1.7] text-[var(--story-ink)]/85">
+                  <div className="space-y-3 text-center text-[13px] leading-[1.65] text-[var(--story-ink)]/90">
                     <ChannelRow
                       label="Whatsapp"
                       value="+91 8124338124"
@@ -74,7 +74,7 @@ export default function ContactPage() {
 
                   {/* Gentle availability note */}
                   <p
-                    className="mt-5 text-center italic text-[var(--story-ink)]/70 leading-[1.6] text-[12.5px] md:text-[13px] font-light"
+                    className="mt-5 text-center italic text-[var(--story-ink)]/70 leading-[1.6] text-[13px]"
                   >
                     We&apos;re available only on WhatsApp and email for
                     reservations and enquiries. As a small, hands-on team,
@@ -181,7 +181,7 @@ function AddressRow({
       <h3
         className="text-[var(--story-ink)]"
         style={{
-          fontSize: "14px",
+          fontSize: "13px",
           fontWeight: 500,
           letterSpacing: "0.005em",
           lineHeight: 1.3,
@@ -207,7 +207,7 @@ function AddressRow({
         aria-hidden
         className="h-px bg-[var(--story-ink)]/15 w-6 mx-auto mt-3 mb-3"
       />
-      <address className="not-italic space-y-1 text-[12px] md:text-[12.5px] leading-[1.65] text-[var(--story-ink)]/75 font-light">
+      <address className="not-italic space-y-1 text-[13px] leading-[1.65] text-[var(--story-ink)]/80">
         {lines.map((l, i) => (
           <p key={i}>{l}</p>
         ))}

@@ -31,27 +31,62 @@ const PhaseSection = React.memo(
     return (
       <section
         id={phase.id}
-        className={`py-12 md:py-20 ${
-          index % 2 === 0 ? "bg-gray-50" : "bg-white"
+        className={`py-16 md:py-24 ${
+          index % 2 === 0
+            ? "[background-color:var(--story-paper)]"
+            : "bg-white"
         } scroll-mt-20`}
       >
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto mb-8 md:mb-12 text-center">
-            <h2 className="text-2xl md:text-4xl font-bold mb-2 relative inline-block">
+          <div className="max-w-3xl mx-auto mb-12 md:mb-16 text-center">
+            <p
+              className="uppercase text-[var(--story-ink)]/85 mb-4"
+              style={{
+                letterSpacing: "0.32em",
+                fontSize: "11px",
+                fontWeight: 500,
+              }}
+            >
+              {phase.id === "phase-1"
+                ? "Phase 01"
+                : phase.id === "phase-2"
+                ? "Phase 02"
+                : "Phase 03"}
+            </p>
+            <h2
+              className="text-[var(--story-ink)] mb-4"
+              style={{
+                fontSize: "clamp(1.45rem, 2.2vw, 1.9rem)",
+                fontWeight: 500,
+                letterSpacing: "0.005em",
+                lineHeight: 1.15,
+              }}
+            >
               {phase.title}
-              <div className="absolute -bottom-1 left-0 w-full h-[3px] bg-primary"></div>
             </h2>
-            <p className="text-primary text-xs md:text-sm flex items-center justify-center mt-1">
-              <MapPin className="h-3 w-3 mr-1" />
-              <span>
+            <div
+              aria-hidden
+              className="h-px bg-[var(--story-ink)]/15 w-10 mx-auto mb-5"
+            />
+            <p
+              className="uppercase text-[var(--story-ink)]/70 flex items-start justify-center mb-5 max-w-md mx-auto"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.18em",
+                fontWeight: 500,
+                lineHeight: 1.5,
+              }}
+            >
+              <MapPin className="h-3 w-3 mr-1.5 mt-[3px] flex-shrink-0" />
+              <span className="text-left">
                 {phase.id === "phase-1" && "Lakshya Township, Near Auroville"}
                 {phase.id === "phase-2" &&
                   "Edayanchavady Cross Road, Near Red Earth Horse Riding School"}
                 {phase.id === "phase-3" &&
-                  "Edayanchavady Cross Road, Near Keeth House Phase Il"}
+                  "Edayanchavady Cross Road, Near Keeth House Phase II"}
               </span>
             </p>
-            <p className="text-base md:text-lg text-foreground/80 mt-4 mx-auto">
+            <p className="text-[13px] leading-[1.65] text-[var(--story-ink)]/90 max-w-xl mx-auto">
               {phase.description}
             </p>
           </div>
@@ -162,10 +197,18 @@ const HouseCard = React.memo(
         </div>
 
         <div className="p-4 md:p-6">
-          <h3 className="text-lg md:text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+          <h3
+            className="text-[var(--story-ink)] mb-2 group-hover:text-primary transition-colors duration-300"
+            style={{
+              fontSize: "clamp(1.05rem, 1.3vw, 1.2rem)",
+              fontWeight: 500,
+              letterSpacing: "0.005em",
+              lineHeight: 1.25,
+            }}
+          >
             {house.name}
           </h3>
-          <p className="text-sm md:text-base text-gray-600 mb-4 line-clamp-3">
+          <p className="text-[13px] leading-[1.65] text-[var(--story-ink)]/90 mb-4 line-clamp-3">
             {house.description}
           </p>
 
@@ -187,11 +230,16 @@ const HouseCard = React.memo(
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center text-sm text-gray-500">
-              <Users className="h-4 w-4 mr-1" />
-              <span>
-                {house.guests} Guests
-              </span>
+            <div
+              className="flex items-center uppercase text-[var(--story-ink)]/70"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.16em",
+                fontWeight: 500,
+              }}
+            >
+              <Users className="h-3.5 w-3.5 mr-1.5" />
+              <span>{house.guests} Guests</span>
             </div>
 
             {house.comingSoon ? (
@@ -372,33 +420,6 @@ export default function StaysPage() {
                 Experience Natural Living
               </motion.span>
             </motion.h1>
-
-            {/* <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.1,
-                ease: [0.33, 1, 0.68, 1],
-              }}
-              className="text-center mx-auto text-lg md:text-2xl text-primary mb-4 md:mb-8"
-            >
-              FROM UNIQUE HOUSES TO TREE HOUSE
-            </motion.p> */}
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.2,
-                ease: [0.33, 1, 0.68, 1],
-              }}
-              className="text-center mx-auto text-[14px] font-normal text-white mb-6 md:mb-10 max-w-xl leading-relaxed"
-            >
-              Keeth House is a memory of the land and it’s people.
-            </motion.p>
-          
           </div>
         </div>
 
@@ -473,9 +494,9 @@ export default function StaysPage() {
                 About
               </p>
               <h2
-                className="text-[var(--story-ink)] mb-6"
+                className="text-[var(--story-ink)] mb-4 whitespace-nowrap"
                 style={{
-                  fontSize: "clamp(1.75rem, 2.6vw, 2.2rem)",
+                  fontSize: "clamp(1.35rem, 1.9vw, 1.7rem)",
                   fontWeight: 500,
                   letterSpacing: "0.005em",
                   lineHeight: 1.15,
@@ -485,9 +506,9 @@ export default function StaysPage() {
               </h2>
               <div
                 aria-hidden
-                className="h-px bg-[var(--story-ink)]/15 w-10 mb-6"
+                className="h-px bg-[var(--story-ink)]/15 w-10 mb-5"
               />
-              <div className="space-y-4 text-[13.5px] md:text-[14.5px] leading-[1.9] text-[var(--story-ink)]/75 font-light">
+              <div className="space-y-3.5 text-[13px] leading-[1.65] text-[var(--story-ink)]/90">
                 <p>
                   Every so often, we yearn to escape the busy life and noisy
                   cities that never sleep. If a peaceful retreat amidst nature
@@ -521,16 +542,26 @@ export default function StaysPage() {
       </div>
 
       {/* Before You Arrive — matches /before-you-arrive editorial grid */}
-      <AnimatedSection className="py-20 md:py-28 relative [background-color:var(--story-paper)]">
+      <AnimatedSection className="py-20 md:py-28 relative bg-white">
         <div
           className="container mx-auto px-4 md:px-8 relative z-10"
           id="before-arrival"
         >
           <div className="text-center mb-14 md:mb-20">
-            <h2
-              className="text-[var(--story-ink)]"
+            <p
+              className="uppercase text-[var(--story-ink)]/85 mb-5"
               style={{
-                fontSize: "clamp(1.75rem, 3.2vw, 2.5rem)",
+                letterSpacing: "0.32em",
+                fontSize: "11px",
+                fontWeight: 500,
+              }}
+            >
+              Guest Guide
+            </p>
+            <h2
+              className="text-[var(--story-ink)] mb-5"
+              style={{
+                fontSize: "clamp(1.45rem, 2.2vw, 1.9rem)",
                 fontWeight: 500,
                 letterSpacing: "0.005em",
                 lineHeight: 1.15,
@@ -538,6 +569,10 @@ export default function StaysPage() {
             >
               Before You Arrive
             </h2>
+            <div
+              aria-hidden
+              className="h-px bg-[var(--story-ink)]/15 w-10 mx-auto"
+            />
           </div>
 
           <div className="max-w-6xl mx-auto">
@@ -595,7 +630,7 @@ export default function StaysPage() {
                   className="px-2 md:px-4 py-6 md:py-8 text-center"
                 >
                   <h3
-                    className="text-[var(--story-ink)] mb-6"
+                    className="text-[var(--story-ink)] mb-4"
                     style={{
                       fontSize: "clamp(1.2rem, 1.8vw, 1.5rem)",
                       fontWeight: 500,
@@ -605,7 +640,11 @@ export default function StaysPage() {
                   >
                     {s.title}
                   </h3>
-                  <div className="space-y-4 text-[13.5px] md:text-[14px] leading-[1.9] text-[var(--story-ink)]/75 font-light">
+                  <div
+                    aria-hidden
+                    className="h-px bg-[var(--story-ink)]/15 w-10 mx-auto mb-5"
+                  />
+                  <div className="space-y-3.5 text-[13px] leading-[1.65] text-[var(--story-ink)]/90">
                     {s.paragraphs.map((p, idx) => (
                       <p key={idx}>{p}</p>
                     ))}

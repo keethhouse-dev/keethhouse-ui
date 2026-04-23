@@ -224,7 +224,7 @@ function GuideCard({
       >
         {title}
       </h2>
-      <div className="space-y-4 text-[13.5px] md:text-[14px] leading-[1.9] text-[var(--story-ink)]/75 font-light">
+      <div className="space-y-3.5 text-[13px] leading-[1.65] text-[var(--story-ink)]/90">
         {paragraphs.map((p, idx) => (
           <p key={idx}>{p}</p>
         ))}

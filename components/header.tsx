@@ -28,13 +28,39 @@ const Header = () => {
     }
   }, [isOpen])
 
+  const sentinelRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+    // Primary: IntersectionObserver on a sentinel at document top
+    const node = sentinelRef.current
+    let observer: IntersectionObserver | null = null
+    if (node) {
+      observer = new IntersectionObserver(
+        ([entry]) => setIsScrolled(!entry.isIntersecting),
+        { threshold: 0 },
+      )
+      observer.observe(node)
     }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    // Backup: capture-phase scroll listeners catch scroll on ANY element
+    const check = () => {
+      const y =
+        window.scrollY ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0
+      if (y > 4) setIsScrolled(true)
+      else if (y === 0) setIsScrolled(false)
+    }
+    check()
+    window.addEventListener("scroll", check, { passive: true, capture: true })
+    document.addEventListener("scroll", check, { passive: true, capture: true })
+
+    return () => {
+      observer?.disconnect()
+      window.removeEventListener("scroll", check, true)
+      document.removeEventListener("scroll", check, true)
+    }
   }, [])
 
   // Pages that open on a light background (no dark hero).
@@ -125,22 +151,26 @@ const Header = () => {
   }
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-500 py-4 md:py-6 flex items-center",
-        useOpaqueHeader ? "backdrop-blur-md" : "bg-transparent",
-        useOpaqueHeader && isScrolled ? "shadow-sm" : "",
-      )}
-      style={
-        useOpaqueHeader
-          ? {
-              backgroundColor: isLightTop
-                ? "var(--story-paper)"
-                : "rgba(255, 255, 255, 0.9)",
-            }
-          : undefined
-      }
-    >
+    <>
+      {/* Sentinel at the very top — when it leaves the viewport, we know user scrolled */}
+      <div
+        ref={sentinelRef}
+        aria-hidden
+        className="absolute top-0 left-0 h-1 w-full pointer-events-none"
+      />
+      <header
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 py-4 md:py-6 flex items-center transition-[background-color,border-color,box-shadow] duration-200",
+          useOpaqueHeader
+            ? "!bg-white border-b border-[var(--story-ink)]/15 shadow-[0_2px_16px_-6px_rgba(29,25,20,0.18)]"
+            : "!bg-transparent border-b border-transparent",
+        )}
+        style={
+          useOpaqueHeader
+            ? { backgroundColor: "#ffffff" }
+            : { backgroundColor: "transparent" }
+        }
+      >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <Link href="/" className="relative z-10">
@@ -257,7 +287,7 @@ const Header = () => {
           animate={{ opacity: 1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => setIsOpen(!isOpen)}
-          className={`md:hidden p-4 rounded-full touch-target ${useOpaqueHeader ? "text-foreground bg-gray-100" : "text-white bg-black/20"}`}
+          className={`md:hidden p-3 rounded-full touch-target shadow-sm ${useOpaqueHeader ? "text-white bg-[var(--story-ink)]" : "text-[var(--story-ink)] bg-white/90 backdrop-blur-sm"}`}
           aria-label={isOpen ? "Close Menu" : "Open Menu"}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -351,6 +381,7 @@ const Header = () => {
         )}
       </AnimatePresence>
     </header>
+    </>
   )
 }
 

@@ -400,7 +400,7 @@ function StoryCopy({
       <p
         className="uppercase text-[var(--story-ink)]/85 mb-5 text-center"
         style={{
-          letterSpacing: "0.28em",
+          letterSpacing: "0.32em",
           fontSize: "11px",
           fontWeight: 500,
         }}
@@ -411,7 +411,7 @@ function StoryCopy({
         aria-hidden
         className="h-px bg-[var(--story-ink)]/15 w-10 mx-auto mb-6"
       />
-      <div className="space-y-3.5 text-[13px] md:text-[13.5px] leading-[1.8] text-[var(--story-ink)]/75 font-light text-center">
+      <div className="space-y-3.5 text-[13px] leading-[1.65] text-[var(--story-ink)]/90 text-center">
         {children}
       </div>
     </div>
@@ -436,7 +436,7 @@ function RecognitionSection() {
             A quiet kind of applause
           </h2>
           <div className="h-px bg-[var(--story-ink)]/15 mx-auto w-16 mb-5" />
-          <p className="max-w-xl mx-auto text-[14px] text-[var(--story-ink)]/70 leading-[1.8]">
+          <p className="max-w-xl mx-auto text-[13px] text-[var(--story-ink)]/70 leading-[1.65]">
             Keeth House has been recognised across leading booking platforms
             for our commitment to sustainable living and guest experiences.
           </p>
@@ -598,7 +598,7 @@ function AwardCard({
         </h3>
         <div className="flex items-center mb-1.5">
           <Award className="h-4 w-4 text-primary mr-1.5" />
-          <p className="text-[13px] md:text-[14px] text-[var(--story-ink)]/80">
+          <p className="text-[13px] text-[var(--story-ink)]/80">
             {label}
           </p>
         </div>
@@ -632,7 +632,7 @@ function RecognitionBlock({
           <h3 className="text-lg mb-2 text-[var(--story-ink)] font-medium">
             {title}
           </h3>
-          <p className="text-[14px] text-[var(--story-ink)]/75 leading-[1.75]">
+          <p className="text-[13px] text-[var(--story-ink)]/75 leading-[1.65]">
             {body}
           </p>
         </div>

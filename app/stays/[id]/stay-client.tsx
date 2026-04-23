@@ -113,7 +113,7 @@ export default function StayClient({ id }: { id: string }) {
   const { house, phase } = houseData.current;
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-white">
       {/* Hero Section */}
       <section
         ref={containerRef}
@@ -157,20 +157,38 @@ export default function StayClient({ id }: { id: string }) {
           >
             <Link
               href="/"
-              className="inline-flex items-center text-white hover:text-primary transition-colors mb-4"
+              className="inline-flex items-center text-white hover:text-primary transition-colors mb-6 uppercase"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.28em",
+                fontWeight: 500,
+              }}
             >
-              <ArrowLeft className="h-4 w-4 mr-2" />
+              <ArrowLeft className="h-3 w-3 mr-2" />
               <span>Back to All Stays</span>
             </Link>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">
+            <p
+              className="uppercase text-white/80 mb-5"
+              style={{
+                letterSpacing: "0.32em",
+                fontSize: "11px",
+                fontWeight: 500,
+              }}
+            >
+              {phase.title} · Near Auroville
+            </p>
+            <h1
+              className="text-white mb-5"
+              style={{
+                fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
+                fontWeight: 500,
+                letterSpacing: "0.005em",
+                lineHeight: 1.05,
+              }}
+            >
               {house.name}
             </h1>
-            <div className="flex items-center text-white/90 mb-4">
-              <MapPin className="h-4 w-4 mr-1 text-primary" />
-              <span className="text-sm">
-                {phase.title} · Near Auroville, Tamil Nadu
-              </span>
-            </div>
+            <div aria-hidden className="h-px bg-white/35 w-10" />
           </motion.div>
         </div>
       </section>
@@ -179,17 +197,33 @@ export default function StayClient({ id }: { id: string }) {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Left Column - Main Content */}
           <div className="md:col-span-2">
-            <section className="bg-white rounded-xl shadow-sm p-6 md:p-8 mb-8">
-              <h2 className="text-2xl font-bold mb-6 text-primary">
+            <section className="pt-8 pb-10 mb-4 border-t border-[var(--story-ink)]/15">
+              <h2
+                className="text-[var(--story-ink)] mb-6"
+                style={{
+                  fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                  fontWeight: 500,
+                  letterSpacing: "0.005em",
+                  lineHeight: 1.2,
+                }}
+              >
                 The Story of {house.name}
               </h2>
-              <p className="text-foreground/80 mb-6 leading-relaxed whitespace-pre-line">
+              <p className="text-[13px] leading-[1.65] text-[var(--story-ink)]/90 mb-6 whitespace-pre-line">
                 {house.description}
               </p>
             </section>
 
-            <section className="bg-white rounded-xl shadow-sm p-6 md:p-8 mb-8">
-              <h2 className="text-2xl font-bold mb-6">Photo Gallery</h2>
+            <section className="pt-8 pb-10 mb-4 border-t border-[var(--story-ink)]/15">
+              <h2
+                className="text-[var(--story-ink)] mb-6"
+                style={{
+                  fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                  fontWeight: 500,
+                  letterSpacing: "0.005em",
+                  lineHeight: 1.2,
+                }}
+              >Photo Gallery</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {house.images
                   .slice(0, 6)
@@ -246,22 +280,38 @@ export default function StayClient({ id }: { id: string }) {
               </Button>
             </Link>
 
-            <section className="bg-white rounded-xl shadow-sm p-6 md:p-8 mb-8">
-              <h2 className="text-2xl font-bold mb-6">Features & Amenities</h2>
+            <section className="pt-8 pb-10 mb-4 border-t border-[var(--story-ink)]/15">
+              <h2
+                className="text-[var(--story-ink)] mb-6"
+                style={{
+                  fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                  fontWeight: 500,
+                  letterSpacing: "0.005em",
+                  lineHeight: 1.2,
+                }}
+              >Features & Amenities</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-6 mb-8">
                 {house.specializations.map((spec: any, index: number) => (
                   <div key={index} className="flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3">
-                      <spec.icon className="h-4 w-4 text-primary" />
-                    </div>
-                    <span className="text-foreground/80">{spec.name}</span>
+                    <spec.icon className="h-4 w-4 mr-3 text-[var(--story-ink)]/60 flex-shrink-0" />
+                    <span className="text-[13px] text-[var(--story-ink)]/90">
+                      {spec.name}
+                    </span>
                   </div>
                 ))}
               </div>
             </section>
 
-            <section className="bg-white rounded-xl shadow-sm p-6 md:p-8">
-              <h2 className="text-2xl font-bold mb-6">Location</h2>
+            <section className="pt-8 pb-10 border-t border-[var(--story-ink)]/15">
+              <h2
+                className="text-[var(--story-ink)] mb-6"
+                style={{
+                  fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                  fontWeight: 500,
+                  letterSpacing: "0.005em",
+                  lineHeight: 1.2,
+                }}
+              >Location</h2>
 
               <div className="relative h-auto md:h-100 pb-4">
                 <img src={house.map} alt="Map" className="object-cover" />
@@ -278,7 +328,7 @@ export default function StayClient({ id }: { id: string }) {
                 </div>
               </div>
 
-              <p className="text-foreground/80 mb-4">
+              <p className="text-[13px] leading-[1.65] text-[var(--story-ink)]/90 mb-5">
                 {house.name} is located in our {phase.title} property near
                 Auroville, Tamil Nadu. The exact location and directions will be
                 provided after booking.
@@ -287,8 +337,8 @@ export default function StayClient({ id }: { id: string }) {
                 <div className="flex items-start">
                   <MapPin className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-medium">Near Auroville</p>
-                    <p className="text-sm text-foreground/70">
+                    <p className="text-[13px] font-medium text-[var(--story-ink)]">Near Auroville</p>
+                    <p className="text-[13px] text-[var(--story-ink)]/70">
                       2 minutes from Auroville Visitor Center
                     </p>
                   </div>
@@ -296,8 +346,8 @@ export default function StayClient({ id }: { id: string }) {
                 <div className="flex items-start">
                   <MapPin className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-medium">Pondicherry</p>
-                    <p className="text-sm text-foreground/70">
+                    <p className="text-[13px] font-medium text-[var(--story-ink)]">Pondicherry</p>
+                    <p className="text-[13px] text-[var(--story-ink)]/70">
                       10 minutes drive
                     </p>
                   </div>
@@ -305,8 +355,8 @@ export default function StayClient({ id }: { id: string }) {
                 <div className="flex items-start">
                   <MapPin className="h-5 w-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-medium">Chennai International Airport</p>
-                    <p className="text-sm text-foreground/70">
+                    <p className="text-[13px] font-medium text-[var(--story-ink)]">Chennai International Airport</p>
+                    <p className="text-[13px] text-[var(--story-ink)]/70">
                       2.5 hours drive
                     </p>
                   </div>
@@ -318,29 +368,37 @@ export default function StayClient({ id }: { id: string }) {
           {/* Right Column - Booking Info */}
           <div className="md:col-span-1">
             <div className="sticky top-24">
-              <section className="bg-white rounded-xl shadow-sm p-6 md:p-8 mb-8">
-                <h2 className="text-2xl font-bold mb-6">Book Your Stay</h2>
+              <section className="pt-8 pb-10 mb-4 border-t border-[var(--story-ink)]/15">
+                <h2
+                className="text-[var(--story-ink)] mb-6"
+                style={{
+                  fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                  fontWeight: 500,
+                  letterSpacing: "0.005em",
+                  lineHeight: 1.2,
+                }}
+              >Book Your Stay</h2>
                 <div className="space-y-4 mb-6">
-                  <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+                  <div className="flex items-center justify-between pb-4 border-b border-[var(--story-ink)]/12">
                     <div className="flex items-center">
                       <Calendar className="h-5 w-5 text-primary mr-2" />
-                      <span className="font-medium">Check-in</span>
+                      <span className="text-[13px] font-medium text-[var(--story-ink)]">Check-in</span>
                     </div>
-                    <span className="text-foreground/80">12:00 PM</span>
+                    <span className="text-[13px] text-[var(--story-ink)]/90">12:00 PM</span>
                   </div>
-                  <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+                  <div className="flex items-center justify-between pb-4 border-b border-[var(--story-ink)]/12">
                     <div className="flex items-center">
                       <Calendar className="h-5 w-5 text-primary mr-2" />
-                      <span className="font-medium">Check-out</span>
+                      <span className="text-[13px] font-medium text-[var(--story-ink)]">Check-out</span>
                     </div>
-                    <span className="text-foreground/80">10:00 AM</span>
+                    <span className="text-[13px] text-[var(--story-ink)]/90">10:00 AM</span>
                   </div>
-                  <div className="flex items-center justify-between pb-4 border-b border-gray-100">
+                  <div className="flex items-center justify-between pb-4 border-b border-[var(--story-ink)]/12">
                     <div className="flex items-center">
                       <Users className="h-5 w-5 text-primary mr-2" />
-                      <span className="font-medium">Max Guests</span>
+                      <span className="text-[13px] font-medium text-[var(--story-ink)]">Max Guests</span>
                     </div>
-                    <span className="text-foreground/80">{house.guests} Guests</span>
+                    <span className="text-[13px] text-[var(--story-ink)]/90">{house.guests} Guests</span>
                   </div>
                 </div>
                 <Link
@@ -363,11 +421,21 @@ export default function StayClient({ id }: { id: string }) {
                 </Link>
               </section>
 
-              <section className="bg-white rounded-xl shadow-sm p-6 md:p-8">
-                <h2 className="text-xl font-bold mb-4">Need Help?</h2>
-                <p className="text-foreground/80 mb-4">
+              <section className="pt-8 pb-10 border-t border-[var(--story-ink)]/15">
+                <h2
+                className="text-[var(--story-ink)] mb-4"
+                style={{
+                  fontSize: "clamp(1.1rem, 1.5vw, 1.3rem)",
+                  fontWeight: 500,
+                  letterSpacing: "0.005em",
+                  lineHeight: 1.25,
+                }}
+              >
+                Need Help?
+              </h2>
+                <p className="text-[13px] leading-[1.65] text-[var(--story-ink)]/90 mb-5">
                   Have questions about this cottage or want to make special
-                  arrangements? We're here to help!
+                  arrangements? We&apos;re here to help.
                 </p>
                 <Link href="/contact">
                   <Button

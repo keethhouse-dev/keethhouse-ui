@@ -75,7 +75,7 @@ export default function HostStory() {
                 aria-hidden
                 className="h-px bg-[var(--story-ink)]/15 w-10 mx-auto mb-6"
               />
-              <div className="space-y-4 text-[13.5px] md:text-[14.5px] leading-[1.85] text-[var(--story-ink)]/75 font-light text-center">
+              <div className="space-y-4 text-[13px] leading-[1.65] text-[var(--story-ink)]/90 text-center">
                 <p>
                   My love for exploring new places and connecting with people
                   has been with me since childhood. Living in the heart of

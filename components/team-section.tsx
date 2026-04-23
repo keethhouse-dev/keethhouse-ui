@@ -55,7 +55,7 @@ export default function TeamSection() {
           />
           <p
             style={fade(0.15)}
-            className="text-[13.5px] md:text-[14.5px] leading-[1.85] text-[var(--story-ink)]/75 font-light"
+            className="text-[13px] leading-[1.65] text-[var(--story-ink)]/90"
           >
             Meet the dedicated people who make Keeth House a place of warmth,
             comfort, and natural beauty. A team bringing together local
@@ -94,7 +94,7 @@ export default function TeamSection() {
                 aria-hidden
                 className="h-px bg-[var(--story-ink)]/15 w-10 mx-auto mb-6"
               />
-              <div className="space-y-3.5 text-[13px] md:text-[13.5px] leading-[1.8] text-[var(--story-ink)]/75 font-light text-center">
+              <div className="space-y-3.5 text-[13px] leading-[1.65] text-[var(--story-ink)]/90 text-center">
                 <p>
                   At Keeth House, we're more than just a team — we're a
                   family. Many of our staff members come from nearby villages,
@@ -190,7 +190,7 @@ function ValueCard({
         aria-hidden
         className="h-px bg-primary/50 w-8 mx-auto mb-5"
       />
-      <p className="text-[13px] md:text-[13.5px] leading-[1.8] text-[var(--story-ink)]/75 font-light">
+      <p className="text-[13px] leading-[1.65] text-[var(--story-ink)]/90">
         {body}
       </p>
     </div>

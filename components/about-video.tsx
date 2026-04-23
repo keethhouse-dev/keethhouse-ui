@@ -35,7 +35,7 @@ export default function AboutVideo({
               alt={alt}
               loading="lazy"
               decoding="async"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.02]"
+              className="absolute inset-0 w-full h-full object-cover transition-transform [transition-duration:1200ms] ease-out group-hover:scale-[1.02]"
             />
 
             {/* soft vignette — hides YouTube-looking edges */}
@@ -51,7 +51,7 @@ export default function AboutVideo({
             {/* play mark — frosted amber disc, sits at 80% from top */}
             <span
               aria-hidden
-              className="absolute left-1/2 top-[80%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
+              className="absolute left-1/2 top-1/2 md:top-[80%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center"
             >
               <span className="relative flex items-center justify-center w-20 h-12 md:w-20 md:h-12 rounded-full bg-primary/70 backdrop-blur-md ring-1 ring-white/25 shadow-[0_12px_28px_-10px_rgba(0,0,0,0.55)] transition-all duration-300 group-hover:bg-primary/90 group-hover:scale-105">
                 <svg
