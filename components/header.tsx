@@ -28,14 +28,46 @@ const Header = () => {
     }
   }, [isOpen])
 
+  const sentinelRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+    // Primary: IntersectionObserver on a sentinel at document top
+    const node = sentinelRef.current
+    let observer: IntersectionObserver | null = null
+    if (node) {
+      observer = new IntersectionObserver(
+        ([entry]) => setIsScrolled(!entry.isIntersecting),
+        { threshold: 0 },
+      )
+      observer.observe(node)
     }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    // Backup: capture-phase scroll listeners catch scroll on ANY element
+    const check = () => {
+      const y =
+        window.scrollY ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0
+      if (y > 4) setIsScrolled(true)
+      else if (y === 0) setIsScrolled(false)
+    }
+    check()
+    window.addEventListener("scroll", check, { passive: true, capture: true })
+    document.addEventListener("scroll", check, { passive: true, capture: true })
+
+    return () => {
+      observer?.disconnect()
+      window.removeEventListener("scroll", check, true)
+      document.removeEventListener("scroll", check, true)
+    }
   }, [])
+
+  // Pages that open on a light background (no dark hero).
+  // Header should render opaque from the top so nav stays legible.
+  const lightTopRoutes = ["/contact"]
+  const isLightTop = lightTopRoutes.some((p) => pathname === p || pathname.startsWith(p + "/"))
+  const useOpaqueHeader = isScrolled || isLightTop
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -60,6 +92,11 @@ const Header = () => {
     {
       title: "Our Story",
       href: "/our-story",
+      onClick: () => window.scrollTo(0, 0),
+    },
+    {
+      title: "Before You Arrive",
+      href: "/before-you-arrive",
       onClick: () => window.scrollTo(0, 0),
     },
     {
@@ -114,17 +151,31 @@ const Header = () => {
   }
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-500 py-4 md:py-6 flex items-center",
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent",
-      )}
-    >
+    <>
+      {/* Sentinel at the very top — when it leaves the viewport, we know user scrolled */}
+      <div
+        ref={sentinelRef}
+        aria-hidden
+        className="absolute top-0 left-0 h-1 w-full pointer-events-none"
+      />
+      <header
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 py-4 md:py-6 flex items-center transition-[background-color,border-color,box-shadow] duration-200",
+          useOpaqueHeader
+            ? "!bg-white border-b border-[var(--story-ink)]/15 shadow-[0_2px_16px_-6px_rgba(29,25,20,0.18)]"
+            : "!bg-transparent border-b border-transparent",
+        )}
+        style={
+          useOpaqueHeader
+            ? { backgroundColor: "#ffffff" }
+            : { backgroundColor: "transparent" }
+        }
+      >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <Link href="/" className="relative z-10">
             <Image
-              src={isScrolled ? "/logo.svg" : "/logo.png"}
+              src={useOpaqueHeader ? "/logo.svg" : "/logo.png"}
               alt="Keeth House Logo"
               width={180}
               height={100}
@@ -153,7 +204,7 @@ const Header = () => {
                 onClick={link.onClick}
                 className={cn(
                   "text-base font-medium transition-colors duration-200 hover:text-primary relative",
-                  pathname === link.href ? "text-primary" : isScrolled ? "text-foreground" : "text-white",
+                  pathname === link.href ? "text-primary" : useOpaqueHeader ? "text-foreground" : "text-white",
                 )}
               >
                 {link.title}
@@ -196,33 +247,92 @@ const Header = () => {
             <AnimatePresence>
               {isDropdownOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute right-0 mt-4 bg-white/90 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden z-50 w-auto min-w-[600px] border border-primary/20"
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute right-0 mt-3 bg-white overflow-hidden z-50 w-[520px] shadow-[0_18px_48px_-20px_rgba(29,25,20,0.25)] border border-[var(--story-ink)]/10"
                 >
-                  <div className="py-3 px-4">
-                    {phaseData.map((phase, phaseIndex) => (
-                      <div key={phase.id} className="mb-3 last:mb-0">
-                        <h3 className="text-sm font-semibold text-primary border-b border-primary/20 pb-1 mb-2">
-                          {phase.title}
-                        </h3>
-                        <div className="flex flex-wrap gap-2">
-                          {phase?.houses?.map((house) => (
-                            <Link
-                              key={house.id}
-                              href={`/stays/${house.id}`}
-                              onClick={() => setIsDropdownOpen(false)}
-                              className="px-4 py-2 text-sm bg-gray-50/80 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-full transition-all duration-300 whitespace-nowrap transform hover:scale-105 shadow-sm"
+                  <div className="grid grid-cols-2">
+                    {phaseData
+                      .filter((phase) => phase.id !== "phase-1")
+                      .map((phase, i) => {
+                        const accent =
+                          phase.id === "phase-2"
+                            ? "var(--story-moss)"
+                            : "var(--story-terra)";
+                        const shortLabel =
+                          phase.id === "phase-2" ? "Phase II" : "Phase III";
+                        return (
+                          <div
+                            key={phase.id}
+                            className={`relative px-7 py-7 ${
+                              i === 0
+                                ? "border-r border-[var(--story-ink)]/10"
+                                : ""
+                            }`}
+                          >
+                            {/* phase eyebrow with leading color mark */}
+                            <div className="flex items-center gap-2 mb-3">
+                              <span
+                                aria-hidden
+                                className="inline-block w-4 h-px"
+                                style={{ backgroundColor: accent }}
+                              />
+                              <p
+                                className="uppercase"
+                                style={{
+                                  color: accent,
+                                  letterSpacing: "0.32em",
+                                  fontSize: "10px",
+                                  fontWeight: 600,
+                                }}
+                              >
+                                {shortLabel}
+                              </p>
+                            </div>
+                            <h3
+                              className="text-[var(--story-ink)] mb-5"
+                              style={{
+                                fontWeight: 500,
+                                fontSize: "15px",
+                                letterSpacing: "0.005em",
+                                lineHeight: 1.25,
+                              }}
                             >
-                              {house.name}
-                            </Link>
-                          ))}
-                        </div>
-                        {phaseIndex < phaseData.length - 1 && <div className="h-px w-full bg-gray-100 my-2"></div>}
-                      </div>
-                    ))}
+                              {phase.title}
+                            </h3>
+                            <ul className="space-y-1.5">
+                              {phase?.houses?.map((house) => (
+                                <li key={house.id}>
+                                  <Link
+                                    href={`/stays/${house.id}`}
+                                    onClick={() => setIsDropdownOpen(false)}
+                                    className="group/link relative inline-flex items-center py-0.5 text-[12.5px] text-[var(--story-ink)]/80 transition-colors"
+                                    onMouseEnter={(e) => {
+                                      (
+                                        e.currentTarget as HTMLElement
+                                      ).style.color = accent;
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      (
+                                        e.currentTarget as HTMLElement
+                                      ).style.color = "";
+                                    }}
+                                  >
+                                    <span
+                                      aria-hidden
+                                      className="absolute left-[-14px] top-1/2 -translate-y-1/2 w-2 h-px opacity-0 group-hover/link:opacity-100 transition-opacity duration-200"
+                                      style={{ backgroundColor: accent }}
+                                    />
+                                    {house.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        );
+                      })}
                   </div>
                 </motion.div>
               )}
@@ -236,7 +346,7 @@ const Header = () => {
           animate={{ opacity: 1 }}
           whileTap={{ scale: 0.9 }}
           onClick={() => setIsOpen(!isOpen)}
-          className={`md:hidden p-4 rounded-full touch-target ${isScrolled ? "text-foreground bg-gray-100" : "text-white bg-black/20"}`}
+          className={`md:hidden p-3 rounded-full touch-target shadow-sm ${useOpaqueHeader ? "text-white bg-[var(--story-ink)]" : "text-[var(--story-ink)] bg-white/90 backdrop-blur-sm"}`}
           aria-label={isOpen ? "Close Menu" : "Open Menu"}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -290,36 +400,70 @@ const Header = () => {
                 <AnimatePresence>
                   {isDropdownOpen && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute left-0 right-0 mt-2 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden z-50 border border-primary/20"
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute left-0 right-0 mt-2 bg-white overflow-hidden z-50 border border-[var(--story-ink)]/10 shadow-[0_16px_36px_-14px_rgba(29,25,20,0.2)]"
                     >
-                      <div className="py-4 px-4">
-                        {phaseData.map((phase, phaseIndex) => (
-                          <div key={phase.id} className="mb-4 last:mb-0">
-                            <h3 className="text-sm font-semibold text-primary border-b border-primary/20 pb-1 mb-2">
-                              {phase.title}
-                            </h3>
-                            <div className="flex flex-wrap gap-2">
-                              {phase?.houses?.map((house) => (
-                                <Link
-                                  key={house.id}
-                                  href={`/stays/${house.id}`}
-                                  onClick={() => {
-                                    setIsDropdownOpen(false)
-                                    setIsOpen(false)
+                      <div className="grid grid-cols-2 divide-x divide-[var(--story-ink)]/10">
+                        {phaseData
+                          .filter((phase) => phase.id !== "phase-1")
+                          .map((phase) => {
+                            const accent =
+                              phase.id === "phase-2"
+                                ? "var(--story-moss)"
+                                : "var(--story-terra)"
+                            const shortLabel =
+                              phase.id === "phase-2" ? "Phase II" : "Phase III"
+                            return (
+                              <div key={phase.id} className="relative px-4 py-4">
+                                <div
+                                  aria-hidden
+                                  className="absolute top-0 left-0 right-0 h-[3px]"
+                                  style={{ backgroundColor: accent }}
+                                />
+                                <p
+                                  className="uppercase mb-1.5"
+                                  style={{
+                                    color: accent,
+                                    letterSpacing: "0.32em",
+                                    fontSize: "9.5px",
+                                    fontWeight: 600,
                                   }}
-                                  className="px-3 py-1.5 text-xs bg-gray-50/80 text-gray-700 hover:bg-primary/10 hover:text-primary rounded-full transition-all duration-300"
                                 >
-                                  {house.name}
-                                </Link>
-                              ))}
-                            </div>
-                            {phaseIndex < phaseData.length - 1 && <div className="h-px w-full bg-gray-100 my-3"></div>}
-                          </div>
-                        ))}
+                                  {shortLabel}
+                                </p>
+                                <h3
+                                  className="text-[var(--story-ink)] mb-2.5"
+                                  style={{
+                                    fontWeight: 500,
+                                    fontSize: "14px",
+                                    letterSpacing: "0.005em",
+                                    lineHeight: 1.2,
+                                  }}
+                                >
+                                  {phase.title}
+                                </h3>
+                                <ul className="space-y-1">
+                                  {phase?.houses?.map((house) => (
+                                    <li key={house.id}>
+                                      <Link
+                                        href={`/stays/${house.id}`}
+                                        onClick={() => {
+                                          setIsDropdownOpen(false)
+                                          setIsOpen(false)
+                                        }}
+                                        className="block py-0.5 text-[12px] text-[var(--story-ink)]/80"
+                                      >
+                                        {house.name}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )
+                          })}
                       </div>
                     </motion.div>
                   )}
@@ -330,6 +474,7 @@ const Header = () => {
         )}
       </AnimatePresence>
     </header>
+    </>
   )
 }
 

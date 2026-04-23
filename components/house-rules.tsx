@@ -88,17 +88,39 @@ export function HouseRules() {
   ]
 
   return (
-    <section className="py-16 md:py-20 bg-white relative" id="house-rules">
+    <section className="py-16 md:py-24 [background-color:var(--story-paper)] relative" id="house-rules">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-8 md:mb-12">
+        <div className="text-center mb-10 md:mb-14">
           <SmoothFadeElement direction="up">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-2">House Rules & Safety Measures</h2>
+            <p
+              className="uppercase text-[var(--story-ink)]/85 mb-5"
+              style={{
+                letterSpacing: "0.32em",
+                fontSize: "11px",
+                fontWeight: 500,
+              }}
+            >
+              Stay With Care
+            </p>
+          </SmoothFadeElement>
+          <SmoothFadeElement direction="up" delay={0.05}>
+            <h2
+              className="text-[var(--story-ink)] mb-5"
+              style={{
+                fontSize: "clamp(1.45rem, 2.2vw, 1.9rem)",
+                fontWeight: 500,
+                letterSpacing: "0.005em",
+                lineHeight: 1.15,
+              }}
+            >
+              House Rules & Safety Measures
+            </h2>
           </SmoothFadeElement>
           <SmoothFadeElement direction="up" delay={0.1}>
-            <div className="h-1 bg-primary mx-auto mb-6 w-20" />
+            <div aria-hidden className="h-px bg-[var(--story-ink)]/15 mx-auto mb-6 w-10" />
           </SmoothFadeElement>
           <SmoothFadeElement direction="up" delay={0.2}>
-            <p className="max-w-2xl mx-auto text-foreground/80">
+            <p className="max-w-xl mx-auto text-[13px] leading-[1.65] text-[var(--story-ink)]/90">
               To ensure a peaceful, safe, and respectful environment for all guests, we kindly ask you to follow these
               guidelines during your stay.
             </p>
@@ -108,24 +130,44 @@ export function HouseRules() {
         <div className="max-w-5xl mx-auto">
           {/* House Rules Section */}
           <SmoothFadeElement direction="up" delay={0.3}>
-            <h3 className="text-2xl font-semibold mb-6 text-primary text-center">House Rules</h3>
+            <h3
+              className="text-[var(--story-ink)] mb-6 text-center"
+              style={{
+                fontSize: "clamp(1.25rem, 1.8vw, 1.5rem)",
+                fontWeight: 500,
+                letterSpacing: "0.005em",
+                lineHeight: 1.25,
+              }}
+            >
+              House Rules
+            </h3>
           </SmoothFadeElement>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 mb-14">
             {houseRules.map((rule, index) => (
               <SmoothFadeElement
                 key={rule.title}
                 direction="up"
                 delay={0.1 + index * 0.05}
-                className="bg-white rounded-xl shadow-sm p-5 border border-gray-100 hover:shadow-md transition-shadow"
+                className="pt-5 border-t border-[var(--story-ink)]/15"
               >
                 <div className="flex items-start">
-                  <div className="bg-primary/10 p-3 rounded-full mr-4 flex-shrink-0">
-                    <rule.icon className="h-5 w-5 text-primary" />
-                  </div>
+                  <rule.icon className="h-4 w-4 mr-3 mt-1 text-[var(--story-ink)]/60 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">{rule.title}</h3>
-                    <p className="text-sm text-foreground/70">{rule.description}</p>
+                    <h3
+                      className="text-[var(--story-ink)] mb-2"
+                      style={{
+                        fontSize: "0.95rem",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.25,
+                      }}
+                    >
+                      {rule.title}
+                    </h3>
+                    <p className="text-[13px] leading-[1.65] text-[var(--story-ink)]/90">
+                      {rule.description}
+                    </p>
                   </div>
                 </div>
               </SmoothFadeElement>
@@ -134,32 +176,56 @@ export function HouseRules() {
 
           {/* Safety Measures Section */}
           <SmoothFadeElement direction="up" delay={0.4}>
-            <h3 className="text-2xl font-semibold mb-6 text-primary text-center">Safety Measures</h3>
+            <h3
+              className="text-[var(--story-ink)] mb-6 text-center"
+              style={{
+                fontSize: "clamp(1.25rem, 1.8vw, 1.5rem)",
+                fontWeight: 500,
+                letterSpacing: "0.005em",
+                lineHeight: 1.25,
+              }}
+            >
+              Safety Measures
+            </h3>
           </SmoothFadeElement>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
             {safetyMeasures.map((measure, index) => (
               <SmoothFadeElement
                 key={measure.title}
                 direction="up"
                 delay={0.1 + index * 0.05}
-                className="bg-white rounded-xl shadow-sm p-5 border border-gray-100 hover:shadow-md transition-shadow"
+                className="pt-5 border-t border-[var(--story-ink)]/15"
               >
                 <div className="flex items-start">
-                  <div className="bg-primary/10 p-3 rounded-full mr-4 flex-shrink-0">
-                    <measure.icon className="h-5 w-5 text-primary" />
-                  </div>
+                  <measure.icon className="h-4 w-4 mr-3 mt-1 text-[var(--story-ink)]/60 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold text-lg mb-1">{measure.title}</h3>
-                    <p className="text-sm text-foreground/70">{measure.description}</p>
+                    <h3
+                      className="text-[var(--story-ink)] mb-2"
+                      style={{
+                        fontSize: "0.95rem",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.25,
+                      }}
+                    >
+                      {measure.title}
+                    </h3>
+                    <p className="text-[13px] leading-[1.65] text-[var(--story-ink)]/90">
+                      {measure.description}
+                    </p>
                   </div>
                 </div>
               </SmoothFadeElement>
             ))}
           </div>
 
-          <SmoothFadeElement direction="up" delay={0.5} className="mt-10 p-6 bg-primary/10 rounded-xl text-center">
-            <p className="text-foreground/80 font-medium">
+          <SmoothFadeElement direction="up" delay={0.5} className="mt-14 text-center">
+            <div aria-hidden className="h-px bg-[var(--story-ink)]/15 w-10 mx-auto mb-6" />
+            <p
+              className="text-[13px] leading-[1.7] text-[var(--story-ink)]/85 max-w-2xl mx-auto italic"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+            >
               Your cooperation with these rules helps us maintain the tranquil atmosphere and natural beauty of Keeth
               House for everyone to enjoy.
             </p>
@@ -167,9 +233,6 @@ export function HouseRules() {
         </div>
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-40 right-20 w-64 h-64 rounded-full bg-primary/5 blur-3xl -z-10"></div>
-      <div className="absolute bottom-20 left-10 w-40 h-40 rounded-full border border-primary/10 -z-10"></div>
     </section>
   )
 }

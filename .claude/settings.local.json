@@ -1,7 +1,29 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node_modules/.bin/next build *)"
+      "Bash(node_modules/.bin/next build *)",
+      "Bash(ls D:\\\\Personal\\\\keethhouse-ui *)",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(curl *)",
+      "Bash(node -e \"try{require\\('sharp'\\);console.log\\('sharp: ok'\\)}catch\\(e\\){console.log\\('sharp: missing'\\)}\")",
+      "Bash(node scripts/optimize-story-images.mjs)",
+      "Bash(cmd //c \"for /f \\\\\"tokens=5\\\\\" %a in \\('netstat -ano ^| findstr :3131 ^| findstr LISTENING'\\) do taskkill /F /PID %a\")",
+      "Bash(powershell *)",
+      "Bash(grep -oE \"[A-Za-z]{0,6}Fin[a-zA-Z]{0,20}\")",
+      "Bash(grep -oE \"Keeth[^<]{0,50}\" /tmp/ourstory.html)",
+      "Bash(grep -oE \"Living, [^<]{0,30}|Back to Land[^<]{0,30}|Culture of Nurture[^<]{0,30}\" /tmp/ourstory.html)",
+      "Bash(awk NR>=586 && NR<=592 {print NR\": \"length\\($0\\)\" chars\"} *)",
+      "Bash(awk 'NR==590 {for\\(i=1;i<=length\\($0\\);i++\\) printf \"%d:%s \",i,substr\\($0,i,1\\); print \"\"}' \"D:/Personal/keethhouse-ui/app/page.tsx\")",
+      "Bash(awk 'NR==604 {for\\(i=1;i<=length\\($0\\);i++\\) printf \"%d:%s \",i,substr\\($0,i,1\\); print \"\"}' \"D:/Personal/keethhouse-ui/app/page.tsx\")",
+      "Bash(node scripts/update-before-arrive.mjs)",
+      "Bash(awk *)",
+      "Bash(grep -E '\\\\\\\\r|\\\\\\\\n')",
+      "Bash(sort -k2)",
+      "Bash(node scripts/optimize-and-cleanup.mjs)",
+      "Bash(node scripts/delete-superseded.mjs)",
+      "Bash(git *)",
+      "Bash(node *)"
     ]
   }
 }

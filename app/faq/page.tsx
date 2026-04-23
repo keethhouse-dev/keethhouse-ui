@@ -165,7 +165,7 @@ const faqCategories = [
           }}
         >
           <Image
-            src="/images/faq.jpg"
+            src="/images/faq.webp"
             alt="Keeth House FAQ Background"
             fill
             priority
@@ -182,10 +182,30 @@ const faqCategories = [
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Frequently Asked Questions</h1>
-            <p className="text-xl text-primary mb-6">Everything you need to know about Keeth House</p>
-            <p className="text-lg text-white/90 max-w-2xl mx-auto">
-              Find answers to common questions about our eco-friendly cottages, amenities, booking process, and more.
+            <p
+              className="uppercase text-white/80 mb-5"
+              style={{
+                letterSpacing: "0.32em",
+                fontSize: "11px",
+                fontWeight: 500,
+              }}
+            >
+              Guest Guide
+            </p>
+            <h1
+              className="text-white mb-5"
+              style={{
+                fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
+                fontWeight: 500,
+                letterSpacing: "0.005em",
+                lineHeight: 1.1,
+              }}
+            >
+              Frequently Asked Questions
+            </h1>
+            <div aria-hidden className="h-px bg-white/35 w-10 mx-auto mb-5" />
+            <p className="text-[13px] leading-[1.65] text-white/90 max-w-2xl mx-auto">
+              Everything you need to know about our eco-friendly cottages, amenities, and booking process.
             </p>
           </motion.div>
         </div>
@@ -195,9 +215,9 @@ const faqCategories = [
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <p className="text-center text-lg text-gray-600 mb-12">
-              Browse through our comprehensive FAQ section to find answers to the most common questions about staying at
-              Keeth House. If you can't find what you're looking for, please don't hesitate to{" "}
+            <p className="text-center text-[13px] leading-[1.65] text-[var(--story-ink)]/90 mb-14 max-w-2xl mx-auto">
+              Browse through our FAQ to find answers to the most common questions about staying at Keeth House. If you
+              can&apos;t find what you&apos;re looking for, please{" "}
               <a href="/contact" className="text-primary hover:underline">
                 contact us
               </a>
@@ -213,10 +233,17 @@ const faqCategories = [
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="text-2xl font-bold mb-6 text-primary"
+                    className="text-[var(--story-ink)] mb-5"
+                    style={{
+                      fontSize: "clamp(1.25rem, 1.8vw, 1.5rem)",
+                      fontWeight: 500,
+                      letterSpacing: "0.005em",
+                      lineHeight: 1.25,
+                    }}
                   >
                     {category.title}
                   </motion.h2>
+                  <div aria-hidden className="h-px bg-[var(--story-ink)]/15 w-8 mb-6" />
 
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -224,17 +251,24 @@ const faqCategories = [
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    <Accordion type="single" collapsible className="bg-white rounded-lg border shadow-sm mb-8">
+                    <Accordion type="single" collapsible className="mb-10">
                       {category.faqs.map((faq, faqIndex) => (
                         <AccordionItem
                           key={`${categoryIndex}-${faqIndex}`}
                           value={`${categoryIndex}-${faqIndex}`}
-                          className="border-b last:border-b-0"
+                          className="border-b border-[var(--story-ink)]/12 last:border-b-0"
                         >
-                          <AccordionTrigger className="px-4 py-4 hover:text-primary text-base font-medium">
+                          <AccordionTrigger
+                            className="py-4 hover:text-primary text-[var(--story-ink)]"
+                            style={{
+                              fontSize: "13px",
+                              fontWeight: 500,
+                              letterSpacing: "0.005em",
+                            }}
+                          >
                             {faq.question}
                           </AccordionTrigger>
-                          <AccordionContent className="px-4 pb-4 text-gray-600 whitespace-pre-line">
+                          <AccordionContent className="pb-5 text-[13px] leading-[1.65] text-[var(--story-ink)]/90 whitespace-pre-line">
                             {faq.answer}
                           </AccordionContent>
                         </AccordionItem>
@@ -245,28 +279,49 @@ const faqCategories = [
               ))}
             </div>
 
-            {/* Still Have Questions Section */}
+            {/* Still Have Questions — editorial close */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="mt-16 p-8 bg-primary/10 rounded-xl text-center"
+              className="mt-20 text-center"
             >
-              <h2 className="text-2xl font-bold mb-4">Still Have Questions?</h2>
-              <p className="text-gray-600 mb-6">
-                Can't find the answer you're looking for? Please feel free to contact our friendly team.
+              <div aria-hidden className="h-px bg-[var(--story-ink)]/15 w-10 mx-auto mb-6" />
+              <h2
+                className="text-[var(--story-ink)] mb-4"
+                style={{
+                  fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                  fontWeight: 500,
+                  letterSpacing: "0.005em",
+                  lineHeight: 1.2,
+                }}
+              >
+                Still have questions?
+              </h2>
+              <p className="text-[13px] leading-[1.65] text-[var(--story-ink)]/90 max-w-xl mx-auto mb-7">
+                Can&apos;t find the answer you&apos;re looking for? Please feel free to reach out to our team.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <a
-                  href="mailto:hello@keethhouse.com"
-                  className="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
+                  href="mailto:reservations@keethhouse.in"
+                  className="inline-flex items-center justify-center uppercase px-6 py-3 bg-[var(--story-ink)] text-white hover:bg-[var(--story-ink)]/90 transition-colors"
+                  style={{
+                    fontSize: "11px",
+                    letterSpacing: "0.28em",
+                    fontWeight: 500,
+                  }}
                 >
                   Email Us
                 </a>
                 <a
                   href="/contact"
-                  className="px-6 py-3 bg-white border border-primary text-primary rounded-full hover:bg-primary/10 transition-colors"
+                  className="inline-flex items-center justify-center uppercase px-6 py-3 border border-[var(--story-ink)]/30 text-[var(--story-ink)] hover:border-[var(--story-ink)] transition-colors"
+                  style={{
+                    fontSize: "11px",
+                    letterSpacing: "0.28em",
+                    fontWeight: 500,
+                  }}
                 >
                   Contact Page
                 </a>

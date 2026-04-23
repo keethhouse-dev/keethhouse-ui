@@ -60,7 +60,7 @@ export default function PrivacyPolicyPage() {
           }}
         >
           <Image
-            src="/images/privacy-policy.png"
+            src="/images/privacy-policy.webp"
             alt="Keeth House Privacy Policy"
             fill
             priority
@@ -77,12 +77,41 @@ export default function PrivacyPolicyPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">Privacy Policy</h1>
-            <p className="text-xl text-primary mb-2">Your privacy matters to us</p>
-            <p className="text-lg text-white/90 max-w-2xl mx-auto">
-              This policy explains how we collect, use, and protect your personal information.
+            <p
+              className="uppercase text-white/80 mb-5"
+              style={{
+                letterSpacing: "0.32em",
+                fontSize: "11px",
+                fontWeight: 500,
+              }}
+            >
+              Your privacy matters
             </p>
-            <p className="text-sm text-white/70 mt-4">Last updated: {lastUpdated}</p>
+            <h1
+              className="text-white mb-5"
+              style={{
+                fontSize: "clamp(2rem, 4.5vw, 3.25rem)",
+                fontWeight: 500,
+                letterSpacing: "0.005em",
+                lineHeight: 1.1,
+              }}
+            >
+              Privacy Policy
+            </h1>
+            <div aria-hidden className="h-px bg-white/35 w-10 mx-auto mb-5" />
+            <p className="text-[13px] leading-[1.65] text-white/90 max-w-2xl mx-auto">
+              How we collect, use, and protect your personal information.
+            </p>
+            <p
+              className="uppercase text-white/60 mt-6"
+              style={{
+                fontSize: "10.5px",
+                letterSpacing: "0.22em",
+                fontWeight: 500,
+              }}
+            >
+              Last updated {lastUpdated}
+            </p>
           </motion.div>
         </div>
       </section>
@@ -91,21 +120,30 @@ export default function PrivacyPolicyPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12">
-            {/* Sidebar - Table of Contents */}
+            {/* Sidebar — Table of Contents */}
             <div className="lg:w-1/4">
-              <div className="sticky top-32 bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-                <h2 className="text-xl font-bold mb-4 text-primary">Contents</h2>
-                <ul className="space-y-3">
+              <div className="sticky top-32 border-l border-[var(--story-ink)]/15 pl-6">
+                <p
+                  className="uppercase text-[var(--story-ink)]/85 mb-4"
+                  style={{
+                    letterSpacing: "0.32em",
+                    fontSize: "11px",
+                    fontWeight: 500,
+                  }}
+                >
+                  Contents
+                </p>
+                <ul className="space-y-2.5">
                   {sections.map((section) => (
-                    <motion.li key={section.id} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 400 }}>
+                    <li key={section.id}>
                       <button
                         onClick={() => scrollToSection(section.id)}
-                        className="flex items-center text-left w-full text-gray-600 hover:text-primary transition-colors group"
+                        className="flex items-start text-left w-full text-[13px] text-[var(--story-ink)]/75 hover:text-[var(--story-ink)] transition-colors"
                       >
-                        <section.icon className="h-4 w-4 mr-2 text-primary" />
+                        <section.icon className="h-3.5 w-3.5 mr-2.5 mt-[3px] flex-shrink-0 text-[var(--story-ink)]/60" />
                         <span>{section.title}</span>
                       </button>
-                    </motion.li>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -113,26 +151,35 @@ export default function PrivacyPolicyPage() {
 
             {/* Main Content */}
             <div className="lg:w-3/4">
-              <div className="prose prose-lg max-w-none">
+              <div className="max-w-none text-[13px] leading-[1.75] text-[var(--story-ink)]/90 [&_p]:mb-4 [&_ul]:mb-6 [&_ul]:space-y-1 [&_li]:leading-[1.75] [&_strong]:font-medium [&_strong]:text-[var(--story-ink)]">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <p className="lead text-xl text-gray-600 mb-8">
+                  <p className="text-[13px] leading-[1.75] text-[var(--story-ink)] mb-10">
                     At Keeth House, we are committed to protecting your privacy and ensuring the security of your
                     personal information. This Privacy Policy outlines our practices regarding the collection, use, and
                     disclosure of your information when you use our services.
                   </p>
 
-                  <div className="bg-primary/5 p-6 rounded-xl mb-12">
-                    <h3 className="text-xl font-semibold mb-4 text-primary">Quick Summary</h3>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>• We collect information you provide when making reservations or contacting us</li>
-                      <li>• We use your information to process bookings and enhance your stay experience</li>
-                      <li>• We implement security measures to protect your personal data</li>
-                      <li>• We use cookies to improve website functionality and user experience</li>
-                      <li>• You have rights regarding your personal information, including access and deletion</li>
+                  <div className="border-l-2 border-[var(--story-ink)]/20 pl-6 mb-14">
+                    <p
+                      className="uppercase text-[var(--story-ink)]/85 mb-4"
+                      style={{
+                        letterSpacing: "0.32em",
+                        fontSize: "11px",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Quick Summary
+                    </p>
+                    <ul className="space-y-2 text-[13px] leading-[1.65] text-[var(--story-ink)]/90">
+                      <li>We collect information you provide when making reservations or contacting us.</li>
+                      <li>We use your information to process bookings and enhance your stay experience.</li>
+                      <li>We implement security measures to protect your personal data.</li>
+                      <li>We use cookies to improve website functionality and user experience.</li>
+                      <li>You have rights regarding your personal information, including access and deletion.</li>
                     </ul>
                   </div>
                 </motion.div>
@@ -141,7 +188,15 @@ export default function PrivacyPolicyPage() {
                 <section id="information-collection" className="mb-12 scroll-mt-32">
                   <div className="flex items-center mb-4">
                     <FileText className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                    <h2 className="text-2xl font-bold inline-flex">Information Collection</h2>
+                    <h2
+                      className="inline-flex text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.2,
+                      }}
+                    >Information Collection</h2>
                   </div>
                   <div className="pl-9">
                     <p>
@@ -149,7 +204,15 @@ export default function PrivacyPolicyPage() {
                       including:
                     </p>
 
-                    <h3 className="text-xl font-semibold mt-6 mb-3">Personal Information</h3>
+                    <h3
+                      className="mt-8 mb-3 text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.3,
+                      }}
+                    >Personal Information</h3>
                     <p>When you make a reservation or contact us, we may collect:</p>
                     <ul className="list-disc pl-6 space-y-1 mb-6">
                       <li>Name, email address, phone number, and postal address</li>
@@ -159,7 +222,15 @@ export default function PrivacyPolicyPage() {
                       <li>Communication records when you contact our customer service</li>
                     </ul>
 
-                    <h3 className="text-xl font-semibold mt-6 mb-3">Automatically Collected Information</h3>
+                    <h3
+                      className="mt-8 mb-3 text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.3,
+                      }}
+                    >Automatically Collected Information</h3>
                     <p>When you visit our website, we automatically collect:</p>
                     <ul className="list-disc pl-6 space-y-1">
                       <li>IP address and device information</li>
@@ -175,7 +246,15 @@ export default function PrivacyPolicyPage() {
                 <section id="information-usage" className="mb-12 scroll-mt-32">
                   <div className="flex items-center mb-4">
                     <Eye className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                    <h2 className="text-2xl font-bold inline-flex">How We Use Your Information</h2>
+                    <h2
+                      className="inline-flex text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.2,
+                      }}
+                    >How We Use Your Information</h2>
                   </div>
                   <div className="pl-9">
                     <p>We use the information we collect for various purposes, including:</p>
@@ -218,7 +297,15 @@ export default function PrivacyPolicyPage() {
                 <section id="data-protection" className="mb-12 scroll-mt-32">
                   <div className="flex items-center mb-4">
                     <Shield className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                    <h2 className="text-2xl font-bold inline-flex">Data Protection</h2>
+                    <h2
+                      className="inline-flex text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.2,
+                      }}
+                    >Data Protection</h2>
                   </div>
                   <div className="pl-9">
                     <p>
@@ -226,7 +313,15 @@ export default function PrivacyPolicyPage() {
                       information against unauthorized access, alteration, disclosure, or destruction.
                     </p>
 
-                    <h3 className="text-xl font-semibold mt-6 mb-3">Security Measures</h3>
+                    <h3
+                      className="mt-8 mb-3 text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.3,
+                      }}
+                    >Security Measures</h3>
                     <ul className="list-disc pl-6 space-y-1 mb-6">
                       <li>Secure Socket Layer (SSL) encryption for data transmission</li>
                       <li>Regular security assessments and updates</li>
@@ -247,7 +342,15 @@ export default function PrivacyPolicyPage() {
                 <section id="cookies" className="mb-12 scroll-mt-32">
                   <div className="flex items-center mb-4">
                     <Cookie className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                    <h2 className="text-2xl font-bold inline-flex">Cookies Policy</h2>
+                    <h2
+                      className="inline-flex text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.2,
+                      }}
+                    >Cookies Policy</h2>
                   </div>
                   <div className="pl-9">
                     <p>
@@ -255,7 +358,15 @@ export default function PrivacyPolicyPage() {
                       website traffic.
                     </p>
 
-                    <h3 className="text-xl font-semibold mt-6 mb-3">Types of Cookies We Use</h3>
+                    <h3
+                      className="mt-8 mb-3 text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.3,
+                      }}
+                    >Types of Cookies We Use</h3>
                     <ul className="list-disc pl-6 space-y-2 mb-6">
                       <li>
                         <strong>Essential Cookies:</strong> Required for basic website functionality and security.
@@ -283,7 +394,15 @@ export default function PrivacyPolicyPage() {
                 <section id="third-parties" className="mb-12 scroll-mt-32">
                   <div className="flex items-center mb-4">
                     <UserCheck className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                    <h2 className="text-2xl font-bold inline-flex">Third-Party Services</h2>
+                    <h2
+                      className="inline-flex text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.2,
+                      }}
+                    >Third-Party Services</h2>
                   </div>
                   <div className="pl-9">
                     <p>
@@ -291,7 +410,15 @@ export default function PrivacyPolicyPage() {
                       business, or providing services to you.
                     </p>
 
-                    <h3 className="text-xl font-semibold mt-6 mb-3">Our Partners Include</h3>
+                    <h3
+                      className="mt-8 mb-3 text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.05rem, 1.4vw, 1.2rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.3,
+                      }}
+                    >Our Partners Include</h3>
                     <ul className="list-disc pl-6 space-y-1 mb-6">
                       <li>Payment processors for secure transaction handling</li>
                       <li>Booking platforms and reservation systems</li>
@@ -312,7 +439,15 @@ export default function PrivacyPolicyPage() {
                 <section id="your-rights" className="mb-12 scroll-mt-32">
                   <div className="flex items-center mb-4">
                     <Lock className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                    <h2 className="text-2xl font-bold inline-flex">Your Rights</h2>
+                    <h2
+                      className="inline-flex text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.2,
+                      }}
+                    >Your Rights</h2>
                   </div>
                   <div className="pl-9">
                     <p>Depending on your location, you may have certain rights regarding your personal information:</p>
@@ -351,7 +486,15 @@ export default function PrivacyPolicyPage() {
                 <section id="updates" className="mb-12 scroll-mt-32">
                   <div className="flex items-center mb-4">
                     <Calendar className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                    <h2 className="text-2xl font-bold inline-flex">Updates to This Policy</h2>
+                    <h2
+                      className="inline-flex text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.2,
+                      }}
+                    >Updates to This Policy</h2>
                   </div>
                   <div className="pl-9">
                     <p>
@@ -375,7 +518,15 @@ export default function PrivacyPolicyPage() {
                 <section id="contact" className="mb-12 scroll-mt-32">
                   <div className="flex items-center mb-4">
                     <Mail className="h-6 w-6 text-primary mr-3 flex-shrink-0" />
-                    <h2 className="text-2xl font-bold inline-flex">Contact Us</h2>
+                    <h2
+                      className="inline-flex text-[var(--story-ink)]"
+                      style={{
+                        fontSize: "clamp(1.35rem, 2vw, 1.7rem)",
+                        fontWeight: 500,
+                        letterSpacing: "0.005em",
+                        lineHeight: 1.2,
+                      }}
+                    >Contact Us</h2>
                   </div>
                   <div className="pl-9">
                     <p>
@@ -387,8 +538,8 @@ export default function PrivacyPolicyPage() {
                       <p>Near Auroville, Tamil Nadu, India</p>
                       <p>
                         Email:{" "}
-                        <a href="mailto:reservations@keethhouse.com" className="text-primary hover:underline">
-                          reservations@keethhouse.com
+                        <a href="mailto:reservations@keethhouse.in" className="text-primary hover:underline">
+                          reservations@keethhouse.in
                         </a>
                       </p>
                       <p>Phone: +91 8124338124</p>
@@ -400,23 +551,30 @@ export default function PrivacyPolicyPage() {
                   </div>
                 </section>
 
-                {/* Final Note */}
-                <div className="bg-primary/10 p-6 rounded-xl mt-12">
-                  <p className="text-center text-gray-700">
+                {/* Final Note — editorial close */}
+                <div className="mt-16 pt-8 border-t border-[var(--story-ink)]/15 text-center">
+                  <p
+                    className="max-w-xl mx-auto text-[13px] leading-[1.65] text-[var(--story-ink)]/90 italic"
+                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+                  >
                     By using our website and services, you acknowledge that you have read and understood this Privacy
                     Policy.
                   </p>
                 </div>
 
-                {/* Back to Top Button */}
+                {/* Back to Top */}
                 <div className="text-center mt-12">
-                  <Button
+                  <button
                     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                    variant="outline"
-                    className="border-primary text-primary hover:bg-primary/10"
+                    className="inline-flex items-center uppercase text-[var(--story-ink)] border-b border-[var(--story-ink)]/30 pb-1 hover:text-primary hover:border-primary transition-colors"
+                    style={{
+                      fontSize: "11px",
+                      letterSpacing: "0.28em",
+                      fontWeight: 500,
+                    }}
                   >
                     Back to Top
-                  </Button>
+                  </button>
                 </div>
               </div>
             </div>

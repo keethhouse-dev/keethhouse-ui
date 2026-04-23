@@ -20,7 +20,7 @@ import {
 export const phaseData = [
   {
     id: "phase-1",
-    title: "Phase I",
+    title: "Keeth House Phase I",
     // description: "Keeth House Phase I is a cozy and intimate property that accommodates three of our beautiful houses. With vibrant trees and foliage covering almost every inch of the ground, the property is designed to make you feel relaxed from the moment you step in. We have a kitchen/diner right within the premises where you are welcome to come in and relish a hearty homemade breakfast or a hot beverage.",
     description:"Keeth House Phase I is reopening soon. The space is currently undergoing thoughtful updates to enhance your stay experience. We look forward to hosting you again with renewed warmth and attention to detail. Thank you for being part of our journey!",
     // houses: [
@@ -152,7 +152,7 @@ export const phaseData = [
   },
   {
     id: "phase-2",
-    title: "Phase II",
+    title: "Keeth House Phase II",
     description:
       "Located a few kilometers away from Keeth House Phase 1, the secluded property boasts four charming houses each with its unique attributes. The high ceilings of the cottages along with the lush tree cover across the expansive land create a cool and serene atmosphere both inside and out. The verdant setting with vibrant flora and fauna makes Keeth House Phase 2 a paradise for nature lovers.",
     houses: [
@@ -326,7 +326,7 @@ export const phaseData = [
   },
   {
     id: "phase-3",
-    title: "Phase III",
+    title: "Keeth House Phase III",
     description:
       "Our newest collection of unique eco-houses, combining sustainable living with modern comforts and amenities.",
     houses: [
