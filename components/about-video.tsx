@@ -28,7 +28,7 @@ export default function AboutVideo({
             type="button"
             onClick={() => setPlaying(true)}
             aria-label="Play Keeth House film"
-            className="absolute inset-0 w-full h-full text-left focus:outline-none"
+            className="absolute inset-0 w-full h-full text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             <img
               src={posterSrc}
@@ -46,6 +46,14 @@ export default function AboutVideo({
                 background:
                   "radial-gradient(ellipse at center, transparent 55%, rgba(20,16,12,0.55) 100%)",
               }}
+            />
+
+            {/* Brand mark — top-right corner */}
+            <img
+              aria-hidden
+              src="/logo.png"
+              alt=""
+              className="absolute top-4 right-4 md:top-6 md:right-6 h-14 md:h-20 w-auto pointer-events-none drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]"
             />
 
             {/* play mark — frosted amber disc, sits at 80% from top */}
