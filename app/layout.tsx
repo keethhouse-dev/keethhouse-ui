@@ -7,6 +7,7 @@ import Footer from "@/components/footer"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider"
 import SocialRail from "@/components/social-rail"
+import ChatWidget from "@/components/chat-widget"
 
 const SITE_URL = "https://www.keethhouse.in"
 const SITE_TITLE = "Keeth House — Experience Natural Living"
@@ -96,6 +97,7 @@ export default function RootLayout({
             <Footer />
             <SocialRail />
             <ScrollToTop />
+            <ChatWidget />
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>
